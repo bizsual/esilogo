@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESi — Brand Identity System · 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:  #a60e13;
+      --blue: #0071bb;
+      --blk:  #0e0e0e;
+      --drk:  #161616;
+      --mid:  #222;
+      --wht:  #ffffff;
+      --gry:  #f4f4f4;
+      --rl:   rgba(255,255,255,.08);   /* rule on dark */
+      --rd:   rgba(0,0,0,.1);          /* rule on light */
+      --fd: 'Barlow Condensed', sans-serif;
+      --fb: 'Barlow', sans-serif;
+      --fm: 'DM Mono', monospace;
+    }
+    html { scroll-behavior:smooth; }
+    body { background:#fff; color:var(--blk); font-family:var(--fb); font-weight:300; line-height:1.55; -webkit-font-smoothing:antialiased; }
+
+    /* REVEAL */
+    .rv { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease; }
+    .rv.on { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+    /* TOPBAR */
+    .topbar { position:fixed; top:0; left:0; right:0; z-index:99; height:46px; background:var(--blk); display:flex; align-items:center; justify-content:space-between; padding:0 40px; border-bottom:1px solid var(--rl); }
+    .tb-brand { font-family:var(--fd); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#fff; }
+    .tb-brand em { color:var(--red); font-style:normal; }
+    .tb-meta { font-family:var(--fm); font-size:10px; letter-spacing:.08em; color:rgba(255,255,255,.28); text-transform:uppercase; }
+    .tb-tag { font-family:var(--fm); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--red); border:1px solid rgba(166,14,19,.4); padding:3px 10px; border-radius:2px; }
+
+    /* LAYOUT */
+    .wrap { max-width:1120px; margin:0 auto; padding:0 40px; }
+
+    /* SECTION LABELS — LIGHT BG */
+    .slabel { display:flex; align-items:center; gap:14px; margin-bottom:36px; }
+    .snum  { font-family:var(--fm); font-size:10px; letter-spacing:.14em; color:var(--red); text-transform:uppercase; }
+    .srule { flex:1; height:1px; background:var(--rd); }
+    .stag  { font-family:var(--fm); font-size:10px; letter-spacing:.1em; color:rgba(0,0,0,.3); text-transform:uppercase; }
+    /* SECTION LABELS — DARK BG */
+    .slabel-d .snum  { color:var(--red); }
+    .slabel-d .srule { background:var(--rl); }
+    .slabel-d .stag  { color:rgba(255,255,255,.28); }
+
+    h1 { font-family:var(--fd); font-weight:800; font-size:clamp(52px,7vw,88px); line-height:.95; letter-spacing:-.01em; text-transform:uppercase; }
+    h2 { font-family:var(--fd); font-weight:700; font-size:clamp(32px,4vw,52px); line-height:1; letter-spacing:.01em; text-transform:uppercase; }
+    h3 { font-family:var(--fd); font-weight:600; font-size:22px; letter-spacing:.04em; text-transform:uppercase; }
+    p  { font-size:14px; line-height:1.7; font-weight:300; }
+
+    /* ──────────────────────────────────────────────────
+       01  HERO — WHITE
+    ────────────────────────────────────────────────── */
+    #hero { background:var(--wht); padding-top:46px; border-bottom:3px solid var(--red); }
+
+    /* 3D render — full width cinematic strip */
+    .hero-render {
+      width:100%; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--wht);
+      padding:48px 40px 0;
+    }
+    .hero-render img {
+      max-width:900px; width:100%; height:auto; display:block;
+
+    }
+
+    /* meta strip below render */
+    .hero-strip {
+      border-top:1px solid var(--rd);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+    }
+    .hero-headline-col {
+      padding:40px 40px 40px 0;
+      border-right:1px solid var(--rd);
+    }
+    .hero-headline-col h1 { color:var(--blk); }
+    .hero-headline-col h1 span { color:var(--red); }
+    .hero-sub { font-family:var(--fd); font-size:13px; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:rgba(0,0,0,.3); margin-top:10px; }
+    .hero-specs-col { padding:40px 0 40px 40px; }
+    .spec-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--rd); font-family:var(--fm); font-size:10px; letter-spacing:.06em; color:rgba(0,0,0,.35); }
+    .spec-row strong { color:var(--blk); font-weight:400; }
+
+    /* ──────────────────────────────────────────────────
+       02  CONCEPT — DARK
+    ────────────────────────────────────────────────── */
+    #concept { background:var(--drk); padding:60px 0; }
+    .concept-grid { display:grid; grid-template-columns:280px 1fr; gap:56px; align-items:start; }
+    .concept-tag { font-family:var(--fd); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:10px; display:block; }
+    #concept h2 { color:#fff; }
+    .pullquote { font-family:var(--fd); font-size:20px; font-weight:500; font-style:italic; letter-spacing:.02em; line-height:1.35; color:#fff; border-left:3px solid var(--red); padding-left:18px; margin:20px 0; }
+    .concept-cols { columns:2; column-gap:32px; }
+    .concept-cols p { break-inside:avoid; color:rgba(255,255,255,.45); }
+    .concept-cols p + p { margin-top:12px; }
+
+    /* ──────────────────────────────────────────────────
+       03  ANATOMY — WHITE
+    ────────────────────────────────────────────────── */
+    #anatomy { background:var(--wht); padding:60px 0; }
+    .anatomy-grid { display:grid; grid-template-columns:360px 1fr; gap:56px; align-items:start; }
+    .anatomy-img { display:flex; align-items:center; justify-content:center; }
+    .anatomy-img img { max-width:320px; width:100%; height:auto; }
+    .zone { padding:16px 0; border-bottom:1px solid var(--rd); }
+    .zone:first-child { border-top:1px solid var(--rd); }
+    .zone-lbl  { font-family:var(--fm); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:5px; display:block; }
+    .zone-name { font-family:var(--fd); font-size:18px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--blk); margin-bottom:5px; }
+    .zone p { font-size:13px; color:rgba(0,0,0,.5); }
+
+    /* ──────────────────────────────────────────────────
+       04  COLORS — DARK
+    ────────────────────────────────────────────────── */
+    #colors { background:var(--drk); padding:60px 0; }
+    .color-row { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-bottom:3px; }
+    .cswatch { aspect-ratio:4/3; transition:transform .25s ease; }
+    .cswatch:hover { transform:scaleY(1.06); transform-origin:bottom; }
+    .cinfo { padding:14px 0 0; }
+    .crole { font-family:var(--fm); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:4px; display:block; }
+    .cname { font-family:var(--fd); font-size:20px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:#fff; margin-bottom:2px; }
+    .chex  { font-family:var(--fm); font-size:11px; color:rgba(255,255,255,.4); display:block; }
+    .crgb  { font-family:var(--fm); font-size:10px; color:rgba(255,255,255,.25); }
+    .color-rules { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:3px; }
+    .crule-card { background:var(--mid); padding:22px 24px; }
+    .crule-title { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; margin-bottom:12px; }
+    .crule-card p { font-size:13px; line-height:1.6; color:rgba(255,255,255,.4); }
+    .crule-card p + p { margin-top:8px; }
+    strong.red  { color:var(--red);  font-weight:600; }
+    strong.blue { color:var(--blue); font-weight:600; }
+    strong.wht  { color:#fff; font-weight:500; }
+
+    /* ──────────────────────────────────────────────────
+       05  VARIATIONS — WHITE
+    ────────────────────────────────────────────────── */
+    #variations { background:var(--wht); padding:60px 0; }
+    .var-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .var-card { background:var(--gry); padding:28px 24px 20px; display:flex; flex-direction:column; }
+    .var-card.span2 { grid-column:span 2; }
+    .var-num { font-family:var(--fm); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+    .var-num::after { content:''; flex:1; height:1px; background:var(--rd); }
+    .var-img { flex:1; display:flex; align-items:center; justify-content:center; min-height:160px; margin-bottom:16px; }
+    .var-img img { max-width:100%; max-height:180px; object-fit:contain; display:block; }
+    .var-img.on-dark { background:var(--drk); padding:20px; }
+    .var-title { font-family:var(--fd); font-size:15px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--blk); margin-bottom:4px; }
+    .var-desc  { font-size:12px; color:rgba(0,0,0,.45); line-height:1.55; }
+
+    /* ──────────────────────────────────────────────────
+       06  GUIDELINES — DARK
+    ────────────────────────────────────────────────── */
+    #guidelines { background:var(--drk); padding:60px 0; }
+    .guide-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+    .guide-col { padding:28px 32px; }
+    .guide-col.do   { background:var(--mid); }
+    .guide-col.dont { background:var(--gry); }
+    .guide-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+    .guide-icon { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-size:13px; font-weight:700; }
+    .icon-do   { background:rgba(0,113,187,.2);  color:var(--blue); }
+    .icon-dont { background:rgba(166,14,19,.15); color:var(--red); }
+    .guide-title { font-family:var(--fd); font-size:20px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .guide-title.do   { color:#fff; }
+    .guide-title.dont { color:var(--blk); }
+    .glist { list-style:none; display:flex; flex-direction:column; }
+    .gi { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid; font-size:13px; line-height:1.5; }
+    .gi:first-child { border-top:1px solid; }
+    .gi.do   { border-color:var(--rl); color:rgba(255,255,255,.5); }
+    .gi.dont { border-color:var(--rd); color:rgba(0,0,0,.55); }
+    .gm { font-family:var(--fm); font-size:10px; min-width:14px; margin-top:1px; }
+    .gm.do   { color:var(--blue); }
+    .gm.dont { color:var(--red); }
+
+    /* FOOTER */
+    footer { background:var(--blk); padding:48px 0 0; border-top:3px solid var(--red); }
+    .foot-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; padding-bottom:40px; }
+    .foot-brand { font-family:var(--fd); font-size:40px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; color:#fff; line-height:1; }
+    .foot-brand span { color:var(--red); }
+    .foot-sub { font-family:var(--fm); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-top:8px; }
+    .foot-col-lbl { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-bottom:14px; display:block; }
+    .flist { list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .flist li { font-size:13px; color:rgba(255,255,255,.4); font-weight:300; }
+    .flist li strong { color:rgba(255,255,255,.75); font-weight:400; }
+    .foot-bottom { border-top:1px solid var(--rl); padding:16px 0; display:flex; justify-content:space-between; align-items:center; }
+    .foot-copy   { font-family:var(--fm); font-size:9px; letter-spacing:.08em; color:rgba(255,255,255,.18); }
+    .foot-agency { font-family:var(--fm); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.18); }
+    .foot-agency span { color:var(--red); }
+
+    /* RESPONSIVE */
+    @media(max-width:860px){
+      .hero-strip,.concept-grid,.anatomy-grid,.guide-grid { grid-template-columns:1fr; }
+      .hero-headline-col { border-right:none; border-bottom:1px solid var(--rd); padding:32px 0; }
+      .hero-specs-col { padding:32px 0; }
+      .var-grid { grid-template-columns:1fr; }
+      .var-card.span2 { grid-column:span 1; }
+      .color-row { grid-template-columns:repeat(2,1fr); }
+      .color-rules { grid-template-columns:1fr; }
+      .foot-grid { grid-template-columns:1fr; gap:28px; }
+      .concept-cols { columns:1; }
+      .topbar,.wrap { padding-left:20px; padding-right:20px; }
+      .hero-render { padding:48px 20px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <nav class="topbar">
+    <div class="tb-brand"><em>ESi</em> &nbsp;·&nbsp; Engineering Services, Inc.</div>
+    <div class="tb-meta">Brand Identity · Draft 01 · 2026</div>
+    <div class="tb-tag">Confidential</div>
+  </nav>
+
+
+  <!-- ══ 01  HERO — WHITE ══ -->
+  <section id="hero">
+
+    <!-- 3D Render — full-width cinematic hero -->
+    <div class="hero-render rv">
+      <img src="ESI_LOGO_V2_PREV0.jpg" alt="ESi Engineering Services, Inc. — 3D Brand Render" />
+    </div>
+
+    <!-- Metadata strip -->
+    <div class="wrap">
+      <div class="hero-strip">
+        <div class="hero-headline-col rv d1">
+          <h1>Brand<br><span>Identity</span><br>System</h1>
+          <div class="hero-sub">Engineering Services, Inc. · Draft 01 · 2026</div>
+        </div>
+        <div class="hero-specs-col rv d2">
+          <div class="spec-row"><span>Client</span><strong>Engineering Services, Inc.</strong></div>
+          <div class="spec-row"><span>Brand Name</span><strong>ESi — E uppercase · S uppercase · i lowercase</strong></div>
+          <div class="spec-row"><span>Industry</span><strong>Building Recertification Inspections</strong></div>
+          <div class="spec-row"><span>Territory</span><strong>South Florida</strong></div>
+          <div class="spec-row"><span>Deliverable</span><strong>Logo Identity System · Five Variations</strong></div>
+          <div class="spec-row"><span>Date</span><strong>May 2026</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══ 02  CONCEPT — DARK ══ -->
+  <section id="concept">
+    <div class="wrap">
+      <div class="slabel slabel-d rv">
+        <span class="snum">02</span>
+        <div class="srule"></div>
+        <span class="stag">The Concept</span>
+      </div>
+      <div class="concept-grid">
+        <div class="rv d1">
+          <span class="concept-tag">A Mark Built on<br>Structure &amp; Trust</span>
+          <h2>Protection<br>Through<br>Precision</h2>
+          <div class="pullquote">"21 years of engineering expertise behind every report."</div>
+        </div>
+        <div class="rv d2">
+          <div class="concept-cols">
+            <p>When a building owner receives an official government compliance notice — a 40-year recertification, a milestone inspection, a structural integrity mandate — they are not searching for a vendor. They are searching for a partner they can trust with the physical safety of the people inside their building.</p>
+            <p>The shield mark is the cornerstone of this identity. It carries the weight of that promise in its most universally understood form: a symbol that says, unambiguously, that what it covers is certified, verified, and safe. Within it, three zones tell the complete story of ESi's expertise.</p>
+            <p>The wordmark "Engineering Services, inc." is set in a bold condensed construction that mirrors the vertical confidence of South Florida's skyline — direct, structural, and without ornament. Together, mark and wordmark form a system that is immediately authoritative and deeply local.</p>
+            <p>Two colors. No excess. Deep crimson signals urgency, accountability, and authority. Institutional blue anchors expertise, trust, and civic responsibility. The combination owns a clear and unoccupied space in the South Florida professional services market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 03  ANATOMY — WHITE ══ -->
+  <section id="anatomy">
+    <div class="wrap">
+      <div class="slabel rv">
+        <span class="snum">03</span>
+        <div class="srule"></div>
+        <span class="stag">Mark Anatomy</span>
+      </div>
+      <div class="anatomy-grid">
+        <div class="anatomy-img rv d1">
+          <img src="ESI_LOGO_V2_PREV_copy.png" alt="ESi Shield Mark" />
+        </div>
+        <div>
+          <div class="zone rv d1">
+            <span class="zone-lbl">Zone 01 — Upper Field</span>
+            <div class="zone-name">The Skyline</div>
+            <p>A South Florida cityscape silhouette in institutional blue. Every building in that skyline is a building that must be recertified — grounding the mark in a specific, real geography while communicating the full scope of ESi's domain.</p>
+          </div>
+          <div class="zone rv d2">
+            <span class="zone-lbl">Zone 02 — Center Band</span>
+            <div class="zone-name">The Lettermark</div>
+            <p>The "ESi" monogram — E and S uppercase, i lowercase — rendered against deep crimson. This deliberate capitalization is a proprietary typographic decision preserved across all applications. The red band is the identity's highest-contrast anchor.</p>
+          </div>
+          <div class="zone rv d3">
+            <span class="zone-lbl">Zone 03 — Lower Field</span>
+            <div class="zone-name">The Infrastructure</div>
+            <p>An arch bridge with water lines in institutional blue — referencing South Florida's infrastructure legacy, its waterfront character, and ESi's guardrail and waterfront inspection capability: the service most competitors never mention.</p>
+          </div>
+          <div class="zone rv d4">
+            <span class="zone-lbl">The Outer Form</span>
+            <div class="zone-name">The Shield</div>
+            <p>A classic heraldic shield with a pointed base — a universal symbol of protection, certification, and authority. In the context of building safety compliance, no form communicates the brand promise more efficiently or more immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 04  COLORS — DARK ══ -->
+  <section id="colors">
+    <div class="wrap">
+      <div class="slabel slabel-d rv">
+        <span class="snum">04</span>
+        <div class="srule"></div>
+        <span class="stag">Color System</span>
+      </div>
+
+      <div class="color-row">
+        <div class="rv d1">
+          <div class="cswatch" style="background:var(--red);"></div>
+          <div class="cinfo">
+            <span class="crole">Primary</span>
+            <div class="cname">Deep Crimson</div>
+            <span class="chex">#a60e13</span>
+            <span class="crgb">RGB 166 · 14 · 19</span>
+          </div>
+        </div>
+        <div class="rv d2">
+          <div class="cswatch" style="background:var(--blue);"></div>
+          <div class="cinfo">
+            <span class="crole">Secondary</span>
+            <div class="cname">Institutional Blue</div>
+            <span class="chex">#0071bb</span>
+            <span class="crgb">RGB 0 · 113 · 187</span>
+          </div>
+        </div>
+        <div class="rv d3">
+          <div class="cswatch" style="background:#0e0e0e;"></div>
+          <div class="cinfo">
+            <span class="crole">Dark / Text</span>
+            <div class="cname">Near Black</div>
+            <span class="chex">#0e0e0e</span>
+            <span class="crgb">RGB 14 · 14 · 14</span>
+          </div>
+        </div>
+        <div class="rv d4">
+          <div class="cswatch" style="background:#fff; border:1px solid rgba(255,255,255,.1);"></div>
+          <div class="cinfo">
+            <span class="crole">Background</span>
+            <div class="cname">Pure White</div>
+            <span class="chex">#ffffff</span>
+            <span class="crgb">RGB 255 · 255 · 255</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-rules">
+        <div class="crule-card rv d1">
+          <div class="crule-title">Hierarchy Rules</div>
+          <p><strong class="red">Deep Crimson</strong> is the dominant brand color. It must appear in every primary lockup, all primary CTAs, and all marketing materials as the leading accent.</p>
+          <p><strong class="blue">Institutional Blue</strong> is the secondary color. Reserved for the mark's interior zones, icons, data callouts, and supporting UI elements.</p>
+          <p><strong class="wht">Near Black</strong> replaces pure #000 for all text. <strong class="wht">Pure White</strong> is the universal background — no tinted surfaces in the core system.</p>
+        </div>
+        <div class="crule-card rv d2">
+          <div class="crule-title">Approved Combinations</div>
+          <p><strong class="red">●</strong> Crimson on White · Primary brand pairing, headings, CTAs</p>
+          <p><strong class="blue">●</strong> Blue on White · Informational, data, links, secondary UI</p>
+          <p><strong class="wht">●</strong> White on Near-Black · Reversed / dark-mode applications</p>
+          <p><strong class="red">●</strong> White on Crimson · Reverse CTA buttons only</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 05  VARIATIONS — WHITE ══ -->
+  <section id="variations">
+    <div class="wrap">
+      <div class="slabel rv">
+        <span class="snum">05</span>
+        <div class="srule"></div>
+        <span class="stag">Logo Variations</span>
+      </div>
+      <div class="var-grid">
+
+        <div class="var-card span2 rv d1">
+          <div class="var-num">Var. 01 — Primary Horizontal Lockup</div>
+          <div class="var-img">
+            <img src="ESI_LOGO_V2_PREV_copy2.png" alt="Primary Horizontal Lockup" />
+          </div>
+          <div class="var-title">Full Color · Horizontal · Transparent</div>
+          <p class="var-desc">The canonical logo. Website header, email signatures, proposals, letterhead. When in doubt, use this version.</p>
+        </div>
+
+        <div class="var-card rv d1">
+          <div class="var-num">Var. 02 — Standalone Mark</div>
+          <div class="var-img on-dark">
+            <img src="ESI_LOGO_V2_PREV_copy.png" alt="Shield Mark" />
+          </div>
+          <div class="var-title">Shield · Icon Only</div>
+          <p class="var-desc">App icon, social profile, favicon, embroidery. Never replaces the primary lockup in formal materials.</p>
+        </div>
+
+        <div class="var-card rv d2">
+          <div class="var-num">Var. 03 — Wordmark Only</div>
+          <div class="var-img">
+            <img src="ESI_LOGO_V2_PREV3.jpg" alt="Wordmark Only" />
+          </div>
+          <div class="var-title">Wordmark · Stacked</div>
+          <p class="var-desc">Large-format banners, co-branding, or when the shield appears separately elsewhere in the layout.</p>
+        </div>
+
+        <div class="var-card rv d3">
+          <div class="var-num">Var. 04 — Monochrome</div>
+          <div class="var-img">
+            <img src="ESI_LOGO_V2_PREV4.jpg" alt="Monochrome" />
+          </div>
+          <div class="var-title">Monochrome · Black</div>
+          <p class="var-desc">Single-color print: embossing, letterpress, fax, newspapers, black-and-white forms.</p>
+        </div>
+
+        <div class="var-card rv d4">
+          <div class="var-num">Var. 05 — Dimensional</div>
+          <div class="var-img">
+            <img src="ESI_LOGO_V2_PREV0.jpg" alt="3D Render" />
+          </div>
+          <div class="var-title">3D Render · Presentation</div>
+          <p class="var-desc">Proposal covers, video intros, premium marketing. Decorative only — never replaces the flat vector master.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 06  GUIDELINES — DARK ══ -->
+  <section id="guidelines">
+    <div class="wrap">
+      <div class="slabel slabel-d rv">
+        <span class="snum">06</span>
+        <div class="srule"></div>
+        <span class="stag">Usage Guidelines</span>
+      </div>
+      <div class="guide-grid rv d1">
+        <div class="guide-col do">
+          <div class="guide-head">
+            <div class="guide-icon icon-do">✓</div>
+            <div class="guide-title do">Always Do</div>
+          </div>
+          <ul class="glist">
+            <li class="gi do"><span class="gm do">✓</span>Use approved logo files only — never redraw or recreate the mark</li>
+            <li class="gi do"><span class="gm do">✓</span>Preserve "ESi": uppercase E, uppercase S, lowercase i — always</li>
+            <li class="gi do"><span class="gm do">✓</span>Maintain clear space equal to the "E" cap-height on all sides</li>
+            <li class="gi do"><span class="gm do">✓</span>Use the monochrome version for single-color print applications</li>
+            <li class="gi do"><span class="gm do">✓</span>Scale proportionally from a corner handle — never stretch</li>
+            <li class="gi do"><span class="gm do">✓</span>Use near-black (#0e0e0e) for all body text — not pure black</li>
+            <li class="gi do"><span class="gm do">✓</span>Minimum: 120px screen · 1 inch print for the full lockup</li>
+          </ul>
+        </div>
+        <div class="guide-col dont">
+          <div class="guide-head">
+            <div class="guide-icon icon-dont">✕</div>
+            <div class="guide-title dont">Never Do</div>
+          </div>
+          <ul class="glist">
+            <li class="gi dont"><span class="gm dont">✕</span>Never add drop shadows, outer glows, or emboss effects</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never place the logo on busy photographic backgrounds</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never alter any color within the logo to an unapproved color</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never rotate, skew, or apply perspective transforms</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never write "ESI", "Esi", or "esi" — always "ESi"</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never use the 3D render as a production or print logo file</li>
+            <li class="gi dont"><span class="gm dont">✕</span>Never add taglines or extra copy adjacent to the mark</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">E<span>S</span>i<span>.</span></div>
+          <div class="foot-sub">Engineering Services, Inc.</div>
+          <div style="margin-top:20px;font-family:var(--fm);font-size:10px;color:rgba(255,255,255,.25);line-height:2;">
+            engsv.com · info@engsv.com<br>Miami-Dade · Broward County, FL
+          </div>
+        </div>
+        <div>
+          <span class="foot-col-lbl">Identity Contents</span>
+          <ul class="flist">
+            <li><strong>01</strong> Primary Identity System</li>
+            <li><strong>02</strong> Brand Concept</li>
+            <li><strong>03</strong> Mark Anatomy</li>
+            <li><strong>04</strong> Color System</li>
+            <li><strong>05</strong> Logo Variations</li>
+            <li><strong>06</strong> Usage Guidelines</li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-col-lbl">Color Reference</span>
+          <ul class="flist">
+            <li><strong style="color:#a60e13;">●</strong>&nbsp; Deep Crimson &nbsp;#a60e13</li>
+            <li><strong style="color:#0071bb;">●</strong>&nbsp; Institutional Blue &nbsp;#0071bb</li>
+            <li><strong style="color:rgba(255,255,255,.5);">●</strong>&nbsp; Near Black &nbsp;#0e0e0e</li>
+            <li><strong style="color:#fff;">●</strong>&nbsp; Pure White &nbsp;#ffffff</li>
+          </ul>
+          <div style="margin-top:20px;">
+            <span class="foot-col-lbl">Document Status</span>
+            <ul class="flist">
+              <li>Version <strong>Draft 01</strong></li>
+              <li>Status <strong>Pending Review</strong></li>
+              <li>Date <strong>May 2026</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p class="foot-copy">© 2026 Engineering Services, Inc. — Confidential and proprietary.</p>
+        <div class="foot-agency">Prepared by <span>ApexForge</span> Strategy Collective</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('on')),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

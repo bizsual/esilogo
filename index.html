@@ -172,6 +172,13 @@
     footer img { height:38px;width:auto;display:block;mix-blend-mode:screen; }
 
     /* ── RESPONSIVE ── */
+    /* logo size classes — desktop values, overridden in mobile */
+    .logo-sq  { max-width:36%;  height:auto; display:block; }
+    .logo-w   { max-width:75%;  height:auto; display:block; }
+    .logo-st  { max-width:44%;  height:auto; display:block; }
+    .strip-sq { max-width:27%;  height:auto; display:block; }
+    .strip-w  { max-width:47%;  height:auto; display:block; }
+
     @media(max-width:860px){
       .topbar,.wrap { padding-left:20px;padding-right:20px; }
       .hero-img-wrap { padding:48px 20px 0; }
@@ -181,6 +188,13 @@
       .var-row { grid-template-columns:1fr 1fr; }
       .color-bar { grid-template-columns:1fr 1fr; }
       footer { padding:28px 20px; }
+      .logo-sq  { max-width:83%; }
+      .logo-w   { max-width:96%; }
+      .logo-st  { max-width:92%; }
+      .strip-sq { max-width:78%; }
+      .strip-w  { max-width:96%; }
+      .stack-row { padding:20px 12px !important; }
+      .logo-strip { padding:36px 12px !important; }
     }
   </style>
 </head>
@@ -365,14 +379,14 @@
       <div class="vgh-rule dkt"></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:3px;" class="rv">
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4i.png" style="max-width:36%;height:auto;display:block;mix-blend-mode:screen;" alt="White Icon" />
+      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4i.png" class="logo-sq" style="mix-blend-mode:screen;" alt="White Icon" />
       </div>
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4d.png" style="max-width:75%;height:auto;display:block;mix-blend-mode:screen;" alt="White Horizontal" />
+      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4d.png" class="logo-w" style="mix-blend-mode:screen;" alt="White Horizontal" />
       </div>
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4g.png" style="max-width:44%;height:auto;display:block;mix-blend-mode:screen;" alt="White Stacked" />
+      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4g.png" class="logo-st" style="mix-blend-mode:screen;" alt="White Stacked" />
       </div>
     </div>
   </div>
@@ -386,14 +400,14 @@
       <div class="vgh-rule lgt"></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:3px;" class="rv">
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4h.png" style="max-width:36%;height:auto;display:block;mix-blend-mode:multiply;" alt="Black Icon" />
+      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4h.png" class="logo-sq" style="mix-blend-mode:multiply;" alt="Black Icon" />
       </div>
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4c.png" style="max-width:75%;height:auto;display:block;mix-blend-mode:multiply;" alt="Black Horizontal" />
+      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4c.png" class="logo-w" style="mix-blend-mode:multiply;" alt="Black Horizontal" />
       </div>
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;">
-        <img src="PROTOTYPE_ESI_LOGO_V4f.png" style="max-width:44%;height:auto;display:block;mix-blend-mode:multiply;" alt="Black Stacked" />
+      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
+        <img src="PROTOTYPE_ESI_LOGO_V4f.png" class="logo-st" style="mix-blend-mode:multiply;" alt="Black Stacked" />
       </div>
     </div>
   </div>
@@ -439,8 +453,8 @@
 </section>
 
 <!-- 3DA LOGO STRIP -->
-<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv">
-  <img src="esi_logo_v4_3da.png" style="max-width:27%;height:auto;display:block;mix-blend-mode:screen;" alt="ESi 3D Mark" />
+<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
+  <img src="esi_logo_v4_3da.png" class="strip-sq" style="mix-blend-mode:screen;" alt="ESi 3D Mark" />
 </div>
 
 
@@ -478,8 +492,8 @@
 </section>
 
 <!-- 3DC LOGO STRIP -->
-<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv">
-  <img src="esi_logo_v4_3dc.png" style="max-width:47%;height:auto;display:block;mix-blend-mode:screen;" alt="ESi 3D Horizontal" />
+<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
+  <img src="esi_logo_v4_3dc.png" class="strip-w" style="mix-blend-mode:screen;" alt="ESi 3D Horizontal" />
 </div>
 
 
@@ -530,8 +544,8 @@
 </section>
 
 <!-- 3DD LOGO STRIP -->
-<div style="background:#1a1a1a;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv">
-  <img src="esi_logo_v4_3dd.png" style="max-width:47%;height:auto;display:block;mix-blend-mode:screen;" alt="ESi 3D Horizontal Alt" />
+<div style="background:#1a1a1a;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
+  <img src="esi_logo_v4_3dd.png" class="strip-w" style="mix-blend-mode:screen;" alt="ESi 3D Horizontal Alt" />
 </div>
 
 

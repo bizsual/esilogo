@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESi — Brand Identity V4 · The Final System</title>
+  <title>ESi — Logo &amp; Brand Identity System · V7</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
-      --red:  #980c10;
-      --blue: #00244c;
-      --blk:  #000000;
-      --dark: #0d0d0d;
-      --mid:  #1a1a1a;
-      --wht:  #ffffff;
-      --gry:  #f3f3f3;
-      --rl:   rgba(255,255,255,.07);
-      --rd:   rgba(0,36,76,.1);
+      --red:   #a70e13;
+      --blue:  #01416f;
+      --blk:   #000000;
+      --dark:  #111111;
+      --dkgry: #1c1c1c;
+      --cream: #f0ebe0;
+      --gry:   #f4f4f4;
+      --wht:   #ffffff;
+      --rl:    rgba(255,255,255,.07);
+      --rd:    rgba(0,64,112,.1);
       --fd: 'Barlow Condensed', sans-serif;
       --fb: 'Barlow', sans-serif;
       --fm: 'DM Mono', monospace;
@@ -27,174 +28,157 @@
     body { background:var(--wht); color:var(--blue); font-family:var(--fb); font-weight:300; -webkit-font-smoothing:antialiased; }
 
     /* REVEAL */
-    .rv { opacity:0; transform:translateY(20px); transition:opacity .7s ease,transform .7s ease; }
+    .rv { opacity:0; transform:translateY(18px); transition:opacity .65s ease, transform .65s ease; }
     .rv.on { opacity:1; transform:translateY(0); }
-    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 
     /* TOPBAR */
-    .topbar { position:fixed;top:0;left:0;right:0;z-index:99;height:46px;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:2px solid var(--red); }
-    .tb-l { font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff; }
-    .tb-l em { color:var(--red);font-style:normal; }
-    .tb-r { font-family:var(--fm);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.3);text-transform:uppercase; }
-    .tb-tag { font-family:var(--fm);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.2);padding:3px 10px;border-radius:2px; }
+    .topbar { position:fixed; top:0; left:0; right:0; z-index:99; height:46px; background:var(--blue); display:flex; align-items:center; justify-content:space-between; padding:0 48px; border-bottom:2px solid var(--red); }
+    .tb-l { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#fff; }
+    .tb-l em { color:var(--red); font-style:normal; }
+    .tb-r { font-family:var(--fm); font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+    .tb-tag { font-family:var(--fm); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.9); border:1px solid rgba(255,255,255,.2); padding:3px 10px; border-radius:2px; }
 
-    /* ── HERO ── */
-    #hero { background:var(--blk);padding-top:46px;border-bottom:3px solid var(--red); }
-    .hero-img-wrap { display:flex;align-items:center;justify-content:center;padding:64px 48px 0; }
-    .hero-img-wrap img { max-width:37%;height:auto;display:block; }
-    .hero-text { text-align:center;padding:52px 48px 72px;border-top:1px solid var(--rl);margin-top:52px; }
-    .hero-eyebrow { font-family:var(--fm);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:20px; }
-    .hero-h1 { font-family:var(--fd);font-size:clamp(40px,4.5vw,62px);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:#fff;margin-bottom:20px; }
+    /* HERO */
+    #hero { background:var(--blk); padding:140px 48px 100px; text-align:center; border-bottom:3px solid var(--red); }
+    .hero-eyebrow { font-family:var(--fm); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--red); margin-bottom:24px; }
+    .hero-h1 { font-family:var(--fd); font-size:clamp(38px,4.5vw,58px); font-weight:800; text-transform:uppercase; line-height:.93; letter-spacing:-.01em; color:#fff; margin-bottom:24px; }
     .hero-h1 span { color:var(--red); }
-    .hero-desc { font-size:17px;line-height:1.82;color:rgba(255,255,255,.5);font-weight:300;max-width:780px;margin:0 auto 32px; }
-    .hero-tags { display:flex;flex-wrap:wrap;gap:8px;justify-content:center; }
-    .hero-tag { font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.1);padding:5px 14px;border-radius:2px; }
+    .hero-desc { font-size:17px; line-height:1.8; color:rgba(255,255,255,.5); font-weight:300; max-width:680px; margin:0 auto 36px; }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+    .hero-tag { font-family:var(--fm); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.1); padding:5px 14px; border-radius:2px; }
 
-    /* ── LAYOUT ── */
-    .wrap { max-width:1100px;margin:0 auto;padding:0 48px; }
-    .sec { padding:88px 0; }
-    .sec-dk { background:var(--dark); }
-    .sec-mid { background:var(--mid); }
-    .sec-lt { background:var(--wht); }
-    .sec-gray { background:var(--gry); }
-    .eyebrow { display:flex;align-items:center;gap:14px;margin-bottom:40px; }
-    .eye-num { font-family:var(--fm);font-size:10px;letter-spacing:.16em;color:var(--red);text-transform:uppercase; }
-    .eye-rule { flex:1;height:1px; }
+    /* LAYOUT */
+    .wrap { max-width:1100px; margin:0 auto; padding:0 48px; }
+
+    /* LOGO BLOCKS 1-3 */
+    .logo-block { padding:88px 0; }
+    .logo-block.lt  { background:var(--wht); }
+    .logo-block.gy  { background:var(--gry); }
+    .logo-block.dk  { background:var(--dark); }
+    .logo-block-inner { display:flex; flex-direction:column; align-items:center; }
+    .logo-block-img { display:flex; align-items:center; justify-content:center; width:100%; margin-bottom:40px; }
+    .logo-block-img img { max-width:42%; height:auto; display:block; }
+    .logo-block-img img.sc { mix-blend-mode:screen; }
+    .logo-block-text { max-width:620px; text-align:center; }
+    .lb-num { font-family:var(--fm); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--red); margin-bottom:12px; display:block; }
+    .lb-title { font-family:var(--fd); font-size:26px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; }
+    .lb-title.lgt { color:var(--blue); }
+    .lb-title.dkt { color:#fff; }
+    .lb-desc { font-size:16px; line-height:1.78; font-weight:400; }
+    .lb-desc.lgt { color:rgba(1,65,111,.82); }
+    .lb-desc.dkt { color:rgba(255,255,255,.82); }
+
+    /* EYEBROW */
+    .eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:40px; }
+    .eye-num  { font-family:var(--fm); font-size:10px; letter-spacing:.16em; color:var(--red); text-transform:uppercase; }
+    .eye-rule { flex:1; height:1px; }
     .eye-rule.lgt { background:var(--rd); }
     .eye-rule.dkt { background:var(--rl); }
-    .eye-tag { font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase; }
-    .eye-tag.lgt { color:rgba(0,36,76,.3); }
+    .eye-tag  { font-family:var(--fm); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .eye-tag.lgt { color:rgba(0,64,112,.3); }
     .eye-tag.dkt { color:rgba(255,255,255,.25); }
-    h2 { font-family:var(--fd);font-weight:800;font-size:clamp(36px,4.5vw,58px);text-transform:uppercase;letter-spacing:.01em;line-height:.95; }
+
+    h2 { font-family:var(--fd); font-weight:800; font-size:clamp(34px,4vw,54px); text-transform:uppercase; letter-spacing:.01em; line-height:.95; }
     h2.lgt { color:var(--blue); }
     h2.dkt { color:#fff; }
-    .body-lg { font-size:17px;line-height:1.82;font-weight:300; }
-    .body-sm { font-size:15px;line-height:1.78;font-weight:300; }
-    .body-lgt { color:rgba(0,36,76,.65); }
-    .body-dkt { color:rgba(255,255,255,.55); }
-    .pull { font-family:var(--fd);font-size:clamp(22px,2.5vw,32px);font-weight:600;font-style:italic;line-height:1.3;letter-spacing:.01em;border-left:3px solid var(--red);padding-left:22px;margin:32px 0; }
-    .pull.lgt { color:var(--blue); }
-    .pull.dkt { color:#fff; }
-    .red-line { width:48px;height:3px;background:var(--red);margin-bottom:24px; }
+    .body-lg { font-size:16px; line-height:1.8; font-weight:400; }
+    .body-lgt { color:rgba(1,65,111,.82); }
+    .body-dkt { color:rgba(255,255,255,.82); }
+    .red-line { width:48px; height:3px; background:var(--red); margin-bottom:20px; }
+    .sec { padding:88px 0; }
+    .sec-lt  { background:var(--wht); }
+    .sec-gy  { background:var(--gry); }
+    .sec-dk  { background:var(--dark); }
+    .sec-mid { background:#1a1a1a; }
 
-    /* ── ANATOMY ── */
-    .anatomy-grid { display:grid;grid-template-columns:360px 1fr;gap:64px;align-items:start; }
-    .anatomy-img img { width:100%;max-width:320px;height:auto;display:block; }
-    .zone { padding:18px 0;border-bottom:1px solid var(--rd); }
-    .zone:first-child { border-top:1px solid var(--rd); }
-    .zone-num { font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:6px;display:block; }
-    .zone-name { font-family:var(--fd);font-size:19px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:6px; }
-    .zone p { font-size:15px;line-height:1.78;color:rgba(0,36,76,.6);font-weight:300; }
+    /* GROUP BLOCKS 4 & 5 */
+    .group-block { padding:72px 0; }
+    .group-header { text-align:center; margin-bottom:48px; }
+    .group-desc { font-size:16px; line-height:1.78; font-weight:400; max-width:600px; margin:12px auto 0; }
+    .logos-row { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .lr-cell { display:flex; align-items:center; justify-content:center; padding:48px 24px; }
+    .lr-cell img { max-width:72%; height:auto; display:block; }
+    .lr-cell img.sc { mix-blend-mode:screen; }
+    .lr-cell img.mv { mix-blend-mode:multiply; }
 
-    /* ── COLOR SYSTEM ── */
-    .color-bar { display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:3px; }
+    /* TYPO BLOCK */
+    .typo-block { padding:88px 0; background:var(--wht); }
+    .typo-img-wrap { display:flex; align-items:center; justify-content:center; margin-top:40px; }
+    .typo-img-wrap img { max-width:60%; height:auto; display:block; }
+
+    /* COLOR SYSTEM */
+    .color-bar { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-bottom:3px; }
     .cswatch { aspect-ratio:16/9; }
-    .cinfo { padding:16px 0 0; }
-    .crole { font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;display:block; }
-    .cname { font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:3px; }
-    .chex { font-family:var(--fm);font-size:12px;color:rgba(255,255,255,.45);display:block;margin-bottom:1px; }
-    .crgb { font-family:var(--fm);font-size:11px;color:rgba(255,255,255,.25); }
-    .color-notes { display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:3px; }
-    .cnote { background:rgba(255,255,255,.04);border:1px solid var(--rl);padding:24px 28px; }
-    .cnote-title { font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:10px; }
-    .cnote p { font-size:15px;line-height:1.78;color:rgba(255,255,255,.45); }
+    .cinfo { padding:14px 0 0; }
+    .crole { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:4px; display:block; }
+    .cname { font-family:var(--fd); font-size:19px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#fff; margin-bottom:2px; }
+    .chex  { font-family:var(--fm); font-size:11px; color:rgba(255,255,255,.45); display:block; margin-bottom:1px; }
+    .crgb  { font-family:var(--fm); font-size:10px; color:rgba(255,255,255,.25); }
+    .color-notes { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:3px; }
+    .cnote { background:rgba(255,255,255,.04); border:1px solid var(--rl); padding:24px 28px; }
+    .cnote-title { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; margin-bottom:10px; }
+    .cnote p { font-size:15px; line-height:1.78; color:rgba(255,255,255,.45); }
     .cnote p + p { margin-top:8px; }
     strong.r { color:var(--red); }
     strong.w { color:#fff; }
+    strong.b { color:#4a9fd4; }
 
-    /* ── VARIATIONS ── */
-    .var-group-header { padding:18px 24px;display:flex;align-items:center;gap:16px;margin-bottom:3px; }
-    .vgh-num { font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--red); }
-    .vgh-rule { flex:1;height:1px; }
-    .vgh-rule.dkt { background:var(--rl); }
-    .vgh-rule.lgt { background:var(--rd); }
-    .vgh-name { font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase; }
-    .vgh-name.dkt { color:rgba(255,255,255,.5); }
-    .vgh-name.lgt { color:rgba(0,36,76,.5); }
-    .var-row { display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px; }
-    .var-card { display:flex;flex-direction:column; }
-    .var-card.dk { background:var(--blk); }
-    .var-card.lt { background:var(--wht); }
-    .var-card.gy { background:var(--gry); }
-    .var-img { flex:1;display:flex;align-items:center;justify-content:center;padding:32px 24px;min-height:200px; }
-    .var-img img { max-width:90%;max-height:170px;object-fit:contain;display:block; }
-    .var-img.sc img { mix-blend-mode:screen; }
-    .var-img.mv img { mix-blend-mode:multiply; }
-    .var-cap { padding:14px 20px;border-top:1px solid; }
-    .var-cap.dk { border-color:var(--rl); }
-    .var-cap.lt { border-color:var(--rd); }
-    .var-label { font-family:var(--fm);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:3px; }
-    .var-name { font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase; }
-    .var-name.dk { color:rgba(255,255,255,.65); }
-    .var-name.lt { color:rgba(0,36,76,.7); }
-    .var-desc { font-size:13px;line-height:1.6;margin-top:3px; }
-    .var-desc.dk { color:rgba(255,255,255,.3); }
-    .var-desc.lt { color:rgba(0,36,76,.4); }
+    /* TYPOGRAPHY */
+    .type-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:40px; }
+    .type-card { padding:36px 40px; border:1px solid var(--rd); }
+    .type-tag { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,112,.35); margin-bottom:20px; display:block; }
+    .type-spec-display { font-family:var(--fd); font-size:52px; font-weight:800; line-height:.9; letter-spacing:-.01em; color:var(--blue); text-transform:uppercase; margin-bottom:16px; }
+    .type-spec-body { font-family:var(--fb); font-size:16px; font-weight:300; line-height:1.78; color:rgba(0,64,112,.6); margin-bottom:16px; }
+    .type-meta { font-family:var(--fm); font-size:10px; color:rgba(0,64,112,.35); line-height:1.9; }
 
-    /* ── TYPOGRAPHY ── */
-    .type-grid { display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:40px; }
-    .type-card { padding:36px 40px;border:1px solid var(--rd); }
-    .type-tag { font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,36,76,.35);margin-bottom:20px;display:block; }
-    .type-spec-display { font-family:var(--fd);font-size:54px;font-weight:800;line-height:.9;letter-spacing:-.01em;color:var(--blue);text-transform:uppercase;margin-bottom:16px; }
-    .type-spec-body { font-family:var(--fb);font-size:16px;font-weight:300;line-height:1.78;color:rgba(0,36,76,.6);margin-bottom:16px; }
-    .type-meta { font-family:var(--fm);font-size:10px;color:rgba(0,36,76,.35);line-height:1.9; }
-
-    /* ── SPECS TABLE ── */
-    .specs { width:100%;border-collapse:collapse;margin-top:40px; }
-    .specs th { font-family:var(--fm);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,36,76,.35);font-weight:300;text-align:left;padding:10px 16px;border-bottom:2px solid var(--rd); }
-    .specs td { font-size:15px;color:rgba(0,36,76,.65);padding:13px 16px;border-bottom:1px solid var(--rd);line-height:1.6;font-weight:300; }
+    /* SPECS TABLE */
+    .specs { width:100%; border-collapse:collapse; margin-top:40px; }
+    .specs th { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,112,.35); font-weight:300; text-align:left; padding:10px 16px; border-bottom:2px solid var(--rd); }
+    .specs td { font-size:15px; color:rgba(0,64,112,.65); padding:13px 16px; border-bottom:1px solid var(--rd); line-height:1.6; font-weight:300; }
     .specs tr:nth-child(odd) td { background:var(--gry); }
-    .specs td:first-child { font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);white-space:nowrap; }
+    .specs td:first-child { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); white-space:nowrap; }
 
-    /* ── GUIDELINES ── */
-    .gl-pair { display:grid;grid-template-columns:1fr 1fr;gap:3px; }
-    .gl-do { background:var(--gry);padding:32px 36px; }
-    .gl-dont { background:var(--blue);padding:32px 36px; }
-    .gl-head { display:flex;align-items:center;gap:12px;margin-bottom:20px; }
-    .gl-ico { width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:13px;font-weight:700; }
-    .ico-do { background:rgba(0,36,76,.12);color:var(--blue); }
-    .ico-dont { background:rgba(152,12,16,.2);color:var(--red); }
-    .gl-title { font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:.08em;text-transform:uppercase; }
-    .gl-title.do { color:var(--blue); }
+    /* GUIDELINES */
+    .gl-pair { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+    .gl-do   { background:var(--gry); padding:32px 36px; }
+    .gl-dont { background:var(--blue); padding:32px 36px; }
+    .gl-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+    .gl-ico  { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-size:13px; font-weight:700; }
+    .ico-do   { background:rgba(0,64,112,.12); color:var(--blue); }
+    .ico-dont { background:rgba(168,8,16,.2); color:var(--red); }
+    .gl-title { font-family:var(--fd); font-size:20px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .gl-title.do   { color:var(--blue); }
     .gl-title.dont { color:#fff; }
     .glist { list-style:none; }
-    .gi { display:flex;gap:12px;padding:12px 0;border-bottom:1px solid;font-size:15px;line-height:1.55; }
+    .gi { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid; font-size:15px; line-height:1.55; }
     .gi:first-child { border-top:1px solid; }
-    .gi.do { border-color:var(--rd);color:rgba(0,36,76,.6); }
-    .gi.dont { border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.5); }
-    .gm { font-family:var(--fm);font-size:10px;min-width:14px;margin-top:3px; }
-    .gm.do { color:var(--blue); }
+    .gi.do   { border-color:var(--rd); color:rgba(0,64,112,.6); }
+    .gi.dont { border-color:rgba(255,255,255,.08); color:rgba(255,255,255,.5); }
+    .gm { font-family:var(--fm); font-size:10px; min-width:14px; margin-top:3px; }
+    .gm.do   { color:var(--blue); }
     .gm.dont { color:var(--red); }
 
-    /* ── FOOTER ── */
-    footer { background:#ec145a;padding:36px 48px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap; }
-    .ft-label { font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8); }
-    footer img { height:38px;width:auto;display:block;mix-blend-mode:screen; }
+    /* FOOTER */
+    footer { background:#ec145a; padding:36px 48px; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+    .ft-label { font-family:var(--fd); font-size:13px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+    footer img { height:38px; width:auto; display:block; mix-blend-mode:screen; }
 
-    /* ── RESPONSIVE ── */
-    /* logo size classes — desktop values, overridden in mobile */
-    .logo-sq  { max-width:36%;  height:auto; display:block; }
-    .logo-w   { max-width:75%;  height:auto; display:block; }
-    .logo-st  { max-width:44%;  height:auto; display:block; }
-    .strip-sq { max-width:27%;  height:auto; display:block; }
-    .strip-w  { max-width:47%;  height:auto; display:block; }
-
+    /* RESPONSIVE */
     @media(max-width:860px){
-      .topbar,.wrap { padding-left:20px;padding-right:20px; }
-      .hero-img-wrap { padding:48px 20px 0; }
-      .hero-img-wrap img { max-width:88%; }
-      .hero-text { padding:40px 20px 56px; }
-      .anatomy-grid,.type-grid,.gl-pair,.color-notes { grid-template-columns:1fr; }
-      .var-row { grid-template-columns:1fr 1fr; }
+      .topbar { padding:0 20px; }
+      .wrap { padding:0 20px; }
+      #hero { padding:100px 20px 72px; }
+      .logo-block { padding:64px 0; }
+      .logo-block-img img { max-width:80%; }
+      .logos-row { grid-template-columns:1fr; }
+      .lr-cell img { max-width:70%; }
+      .typo-img-wrap img { max-width:92%; }
       .color-bar { grid-template-columns:1fr 1fr; }
+      .color-notes { grid-template-columns:1fr; }
+      .type-grid { grid-template-columns:1fr; }
+      .gl-pair { grid-template-columns:1fr; }
       footer { padding:28px 20px; }
-      .logo-sq  { max-width:83%; }
-      .logo-w   { max-width:96%; }
-      .logo-st  { max-width:92%; }
-      .strip-sq { max-width:78%; }
-      .strip-w  { max-width:96%; }
-      .stack-row { padding:20px 12px !important; }
-      .logo-strip { padding:36px 12px !important; }
     }
   </style>
 </head>
@@ -203,95 +187,142 @@
 <!-- TOPBAR -->
 <nav class="topbar">
   <div class="tb-l"><em>ESi</em> &nbsp;·&nbsp; Engineering Services, Inc.</div>
-  <div class="tb-r">Brand Identity V4 · The Final System</div>
+  <div class="tb-r">Brand Identity System · V7</div>
   <div class="tb-tag">Confidential</div>
 </nav>
 
 
-<!-- ══════════════════════════════════════════
-  HERO
-══════════════════════════════════════════ -->
+<!-- ══ HERO ══ -->
 <section id="hero">
-
-  <div class="hero-img-wrap rv">
-    <img src="esi_logo_v4_3db.png" alt="ESi — The Final System" />
+  <div class="hero-eyebrow rv">Engineering Services, Inc. · South Florida · Version 7</div>
+  <h1 class="hero-h1 rv d1">Logo &amp; Brand<br><span>Identity System.</span></h1>
+  <p class="hero-desc rv d2">Three new mark variations built on Oscar's latest direction — simplified, printable, and built to last. A cleaner building, a bolder checkmark, a more readable blue. Every decision has a reason.</p>
+  <div class="hero-tags rv d3">
+    <span class="hero-tag">Deep Crimson · #a70e13</span>
+    <span class="hero-tag">Midnight Blue · #01416f</span>
+    <span class="hero-tag">3 Mark Variations</span>
+    <span class="hero-tag">Miami-Dade · Broward · South Florida</span>
   </div>
-
-  <div class="hero-text rv d2">
-    <div class="hero-eyebrow">Engineering Services, Inc. · Brand Identity · Version 4</div>
-    <h1 class="hero-h1">The <span>Final</span> System.</h1>
-    <p class="hero-desc">A complete identity system built on twenty-one years of South Florida engineering expertise. Every element earns its place. Every decision carries meaning.</p>
-    <div class="hero-tags">
-      <span class="hero-tag">Deep Crimson · #980c10</span>
-      <span class="hero-tag">Midnight Navy · #00244c</span>
-      <span class="hero-tag">13 Variations</span>
-      <span class="hero-tag">Miami-Dade · Broward · South Florida</span>
-    </div>
-  </div>
-
 </section>
 
 
-<!-- ══════════════════════════════════════════
-  01 · MARK ANATOMY
-══════════════════════════════════════════ -->
-<section class="sec sec-gray">
+<!-- ══ BLOCK 1 · V7a ══ -->
+<div class="logo-block lt rv">
   <div class="wrap">
-    <div class="eyebrow rv">
-      <span class="eye-num">01</span>
-      <div class="eye-rule lgt"></div>
-      <span class="eye-tag lgt">Mark Anatomy · A Hybrid of Two Great Ideas</span>
-    </div>
-
-    <!-- wide horizontal logo -->
-    <div style="display:flex;align-items:center;justify-content:center;padding:0 0 56px;" class="rv">
-      <img src="PROTOTYPE_ESI_LOGO_V4b.png" style="width:100%;height:auto;display:block;" alt="ESi Full Color Horizontal" />
-    </div>
-
-    <!-- title + zones -->
-    <div class="anatomy-grid">
-      <div class="rv d1">
-        <div class="red-line"></div>
-        <h2 class="lgt" style="margin-bottom:28px;">Built from<br>Two Great<br>Ideas.</h2>
-        <div class="pull lgt">"When ESi signs a report, the building is cleared."</div>
-        <div style="margin-top:32px;display:flex;align-items:center;justify-content:center;">
-          <img src="PROTOTYPE_ESI_LOGO_V4.png" style="width:80%;height:auto;display:block;" alt="ESi Full Color Icon" />
-        </div>
+    <div class="logo-block-inner">
+      <div class="logo-block-img">
+        <img src="PROTOTYPE_ESI_LOGO_V7a.png" alt="ESi Logo V7a" />
       </div>
-      <div>
-        <div class="zone rv d2">
-          <span class="zone-num">Element 01 — Upper Field</span>
-          <div class="zone-name">The City Skyline</div>
-          <p>Three crimson building silhouettes rise above the frame — a dominant central tower flanked by smaller structures. This skyline represents the full spectrum of South Florida properties ESi certifies: from a small four-unit multifamily to a large commercial complex. The crimson signals urgency, accountability, and the weight of public safety.</p>
-        </div>
-        <div class="zone rv d3">
-          <span class="zone-num">Element 02 — The Frame</span>
-          <div class="zone-name">The Architectural Frame</div>
-          <p>Two angular structural pillars extend outward at the base of the skyline, forming the profile of a building entrance or structural elevation. The frame creates a defined inspection zone — and gives the mark a grounded, physical presence. It tells you immediately: this is a firm that works inside buildings.</p>
-        </div>
-        <div class="zone rv d3">
-          <span class="zone-num">Element 03 — The Centerpiece</span>
-          <div class="zone-name">The Certification Shield</div>
-          <p>A shield with a checkmark sits at the junction of skyline and frame — the heart of the mark. This is Oscar's essential addition: the shield communicates certification authority, the checkmark communicates approval. Together they say what no tagline ever could: ESi has been here, has inspected this, and the building is cleared.</p>
-        </div>
-        <div class="zone rv d4">
-          <span class="zone-num">Element 04 — The Lettermark</span>
-          <div class="zone-name">The ESi Monogram</div>
-          <p>The geometric ESi lettermark sits inside the frame in midnight navy — the identity's text anchor. Uppercase E and S in bold geometric weight, lowercase i with a diagonal slash. The capitalization is proprietary: E·S·i. The diagonal cut through the letterforms reflects the precision of architectural and structural draftsmanship.</p>
-        </div>
+      <div class="logo-block-text">
+        <span class="lb-num">Variation 01 · V7a</span>
+        <div class="lb-title lgt">The Open Mark</div>
+        <p class="lb-desc lgt">The building silhouette and red checkmark work together without any enclosing frame. The checkmark sweeps diagonally through the composition, giving the mark energy and direction. The open structure means the eye reads both elements simultaneously and the whole thing prints cleanly at any size — from a business card to a truck wrap.</p>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 
-<!-- ══════════════════════════════════════════
-  02 · COLOR SYSTEM
-══════════════════════════════════════════ -->
+<!-- ══ BLOCK 2 · V7b ══ -->
+<div class="logo-block rv" style="background:#d9d9d9;">
+  <div class="wrap">
+    <div class="logo-block-inner">
+      <div class="logo-block-img">
+        <img src="PROTOTYPE_ESI_LOGO_V7b.png" alt="ESi Logo V7b" />
+      </div>
+      <div class="logo-block-text">
+        <span class="lb-num">Variation 02 · V7b</span>
+        <div class="lb-title lgt">The Circle Mark</div>
+        <p class="lb-desc lgt">The circular enclosure gives the mark a badge or seal quality that reads immediately as authority and certification. The building and checkmark sit within the arc, reinforcing the idea of a completed, approved inspection. This variant works particularly well as a standalone emblem — embroidery, stamps, official report headers, profile images.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ BLOCK 3 · V7c ══ -->
+<div class="logo-block gy rv">
+  <div class="wrap">
+    <div class="logo-block-inner">
+      <div class="logo-block-img">
+        <img src="PROTOTYPE_ESI_LOGO_V7c.png" alt="ESi Logo V7c" />
+      </div>
+      <div class="logo-block-text">
+        <span class="lb-num">Variation 03 · V7c</span>
+        <div class="lb-title lgt">The Compact Mark</div>
+        <p class="lb-desc lgt">A tighter, more structured interpretation where the building and checkmark are contained and grounded. The proportions are more vertical, making it the cleanest performer at very small sizes. This is the variant that will still read on a pen, a favicon, or a 16px app icon without losing its meaning.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ BLOCK 4 · WHITE VERSIONS ══ -->
+<div class="group-block" style="background:var(--dkgry);">
+  <div class="wrap">
+    <div class="group-header rv">
+      <span class="lb-num">White Versions · Dark Field Applications</span>
+      <h2 class="dkt">Single Color<br>White.</h2>
+      <p class="group-desc body-dkt">For dark backgrounds, embroidery on dark fabrics, reversed digital applications, and any context where the full-color version cannot be used on a dark surface.</p>
+    </div>
+    <div class="logos-row rv d1">
+      <div class="lr-cell" style="background:#111;">
+        <img src="PROTOTYPE_ESI_LOGO_V7aw.png" alt="V7a White" class="sc" />
+      </div>
+      <div class="lr-cell" style="background:#111;">
+        <img src="PROTOTYPE_ESI_LOGO_V7bw.png" alt="V7b White" class="sc" />
+      </div>
+      <div class="lr-cell" style="background:#111;">
+        <img src="PROTOTYPE_ESI_LOGO_V7cw.png" alt="V7c White" class="sc" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ BLOCK 5 · BLACK VERSIONS ══ -->
+<div class="group-block" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="group-header rv">
+      <span class="lb-num" style="color:var(--red);">Black Versions · Single-Color Print</span>
+      <h2 class="lgt">Single Color<br>Black.</h2>
+      <p class="group-desc body-lgt">For letterpress, embossing, single-ink print, official inspection reports, legal documents, government permit applications, and any single-color application.</p>
+    </div>
+    <div class="logos-row rv d1">
+      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
+        <img src="PROTOTYPE_ESI_LOGO_V7ab.png" alt="V7a Black" class="mv" />
+      </div>
+      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
+        <img src="PROTOTYPE_ESI_LOGO_V7bb.png" alt="V7b Black" class="mv" />
+      </div>
+      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
+        <img src="PROTOTYPE_ESI_LOGO_V7cb.png" alt="V7c Black" class="mv" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ BLOCK 6 · TYPOGRAPHIC SYSTEM ══ -->
+<div class="typo-block rv">
+  <div class="wrap">
+    <div class="group-header">
+      <span class="lb-num">Typographic System</span>
+      <h2 class="lgt">The Logotype.</h2>
+      <p class="group-desc body-lgt">Four color combinations using only the two brand colors — deep crimson and midnight blue. Each block presents all three logo variations (V7a, V7b, and V7c) in the same color treatment, showing how red and blue can be distributed differently across the mark and the wordmark while the identity stays consistent and immediately recognizable.</p>
+    </div>
+    <div class="typo-img-wrap rv d1">
+      <img src="PROTOTYPE_ESI_LOGO_V7typo.png" alt="ESi Typographic System" />
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 7 · COLOR SYSTEM ══ -->
 <section class="sec sec-mid">
   <div class="wrap">
     <div class="eyebrow rv">
-      <span class="eye-num">02</span>
+      <span class="eye-num">07</span>
       <div class="eye-rule dkt"></div>
       <span class="eye-tag dkt">Color System · Two Colors · No Exceptions</span>
     </div>
@@ -299,34 +330,34 @@
 
     <div class="color-bar rv d1">
       <div>
-        <div class="cswatch" style="background:#980c10;"></div>
+        <div class="cswatch" style="background:#a70e13;"></div>
         <div class="cinfo">
           <span class="crole">Primary</span>
           <div class="cname">Deep Crimson</div>
-          <span class="chex">#980c10</span>
-          <span class="crgb">RGB 152 · 12 · 16</span>
+          <span class="chex">#a70e13</span>
+          <span class="crgb">RGB 167 · 14 · 19</span>
         </div>
       </div>
       <div>
-        <div class="cswatch" style="background:#00244c;"></div>
+        <div class="cswatch" style="background:#01416f;"></div>
         <div class="cinfo">
           <span class="crole">Secondary</span>
-          <div class="cname">Midnight Navy</div>
-          <span class="chex">#00244c</span>
-          <span class="crgb">RGB 0 · 36 · 76</span>
+          <div class="cname">Midnight Blue</div>
+          <span class="chex">#01416f</span>
+          <span class="crgb">RGB 1 · 65 · 111</span>
         </div>
       </div>
       <div>
-        <div class="cswatch" style="background:#080808;border:1px solid rgba(255,255,255,.05);"></div>
+        <div class="cswatch" style="background:#111111; border:1px solid rgba(255,255,255,.05);"></div>
         <div class="cinfo">
           <span class="crole">Dark Field</span>
           <div class="cname">Near Black</div>
-          <span class="chex">#080808</span>
-          <span class="crgb">RGB 8 · 8 · 8</span>
+          <span class="chex">#111111</span>
+          <span class="crgb">RGB 17 · 17 · 17</span>
         </div>
       </div>
       <div>
-        <div class="cswatch" style="background:#ffffff;border:1px solid rgba(255,255,255,.07);"></div>
+        <div class="cswatch" style="background:#ffffff; border:1px solid rgba(255,255,255,.07);"></div>
         <div class="cinfo">
           <span class="crole">Light Field</span>
           <div class="cname">Pure White</div>
@@ -338,133 +369,66 @@
 
     <div class="color-notes rv d2">
       <div class="cnote">
-        <div class="cnote-title">Hierarchy &amp; Intent</div>
-        <p><strong class="r">Deep Crimson</strong> leads. It appears in every primary application — the architectural frame, the skyline, every heading that demands authority. It is the color of accountability and urgency.</p>
-        <p><strong class="w">Midnight Navy</strong> grounds. It appears in the ESi lettermark, the shield outline, body text, and all secondary system elements. It is the color of expertise and depth.</p>
-        <p>These two colors and only these two constitute the ESi brand palette. No variants, no tints, no additions without explicit approval.</p>
+        <div class="cnote-title">Color Roles</div>
+        <p><strong class="r">Deep Crimson</strong> is the dominant brand color. It appears in the checkmark, primary CTAs, and all accent elements. It signals urgency, accountability, and action.</p>
+        <p><strong class="b">#01416f Midnight Blue</strong> is the updated secondary color. Unlike the previous darker navy, this value maintains clear distinction from black when used as body text on white surfaces — solving the legibility issue in reports and documents.</p>
+        <p>No variants, no tints, no additional colors without explicit approval.</p>
       </div>
       <div class="cnote">
         <div class="cnote-title">Approved Combinations</div>
-        <p><strong class="r">●</strong> Crimson on White — primary brand pairing across all print and digital</p>
-        <p><strong class="w">●</strong> Navy on White — secondary pairing for body text, data, and UI</p>
-        <p><strong class="w">●</strong> White on Crimson — reverse CTAs and highlight banners only</p>
-        <p><strong class="w">●</strong> White on Navy — reversed and dark-field applications</p>
-        <p><strong class="r">●</strong> Crimson on Navy — high-impact headers on dark backgrounds</p>
+        <p><strong class="r">●</strong> Crimson on White — primary brand pairing, headings, CTAs</p>
+        <p><strong class="b">●</strong> Navy on White — body text, UI, links, secondary type</p>
+        <p><strong class="w">●</strong> White on Crimson — reverse CTAs and highlight banners</p>
+        <p><strong class="w">●</strong> White on Navy — dark-mode headers and reversed applications</p>
+        <p><strong class="r">●</strong> Crimson on Navy — accent text on dark branded backgrounds</p>
+        <p><strong class="w">●</strong> Navy on Cream — document body text, report typography</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-  03 · COMPLETE VARIATION LIBRARY
-══════════════════════════════════════════ -->
-<section class="sec sec-dk" style="padding-bottom:16px;">
-  <div class="wrap">
-    <div class="eyebrow rv">
-      <span class="eye-num">03</span>
-      <div class="eye-rule dkt"></div>
-      <span class="eye-tag dkt">Complete Variation Library</span>
-    </div>
-    <h2 class="dkt rv" style="margin-bottom:12px;">One Mark.<br>Every Context.</h2>
-    <p class="body-lg body-dkt rv d1" style="max-width:620px;margin-bottom:0;">A complete identity system is a precisely organized library of variations — each with a defined purpose, a specific context, and a reason to exist. The ESi system delivers thirteen variations across four categories. Every application is covered.</p>
-  </div>
-</section>
-
-<!-- GROUP 1 · WHITE VERSIONS -->
-<div style="background:#0d0d0d;padding:48px 0 48px;border-top:2px solid var(--red);">
-  <div style="max-width:1100px;margin:0 auto;padding:0 48px;">
-    <div class="var-group-header" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);margin-bottom:16px;">
-      <span class="vgh-num">Group 01</span>
-      <div class="vgh-rule dkt"></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:3px;" class="rv">
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4i.png" class="logo-sq" style="mix-blend-mode:screen;" alt="White Icon" />
-      </div>
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4d.png" class="logo-w" style="mix-blend-mode:screen;" alt="White Horizontal" />
-      </div>
-      <div style="background:#161616;display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4g.png" class="logo-st" style="mix-blend-mode:screen;" alt="White Stacked" />
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- GROUP 2 · BLACK VERSIONS -->
-<div style="background:#f3f3f3;padding:48px 0 48px;border-top:2px solid var(--red);">
-  <div style="max-width:1100px;margin:0 auto;padding:0 48px;">
-    <div class="var-group-header" style="background:rgba(0,36,76,.06);border:1px solid rgba(0,36,76,.1);margin-bottom:16px;">
-      <span class="vgh-num">Group 02</span>
-      <div class="vgh-rule lgt"></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:3px;" class="rv">
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4h.png" class="logo-sq" style="mix-blend-mode:multiply;" alt="Black Icon" />
-      </div>
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4c.png" class="logo-w" style="mix-blend-mode:multiply;" alt="Black Horizontal" />
-      </div>
-      <div style="background:#ffffff;border:1px solid rgba(0,36,76,.06);display:flex;align-items:center;justify-content:center;padding:40px 48px;" class="stack-row">
-        <img src="PROTOTYPE_ESI_LOGO_V4f.png" class="logo-st" style="mix-blend-mode:multiply;" alt="Black Stacked" />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ══════════════════════════════════════════
-  04 · TYPOGRAPHY
-══════════════════════════════════════════ -->
+<!-- ══ 8 · TYPOGRAPHY ══ -->
 <section class="sec sec-lt">
   <div class="wrap">
     <div class="eyebrow rv">
-      <span class="eye-num">04</span>
+      <span class="eye-num">08</span>
       <div class="eye-rule lgt"></div>
       <span class="eye-tag lgt">Typography System</span>
     </div>
     <h2 class="lgt rv" style="margin-bottom:16px;">Sharp. Structural.<br>Unmistakably<br>Professional.</h2>
-    <p class="body-lg body-lgt rv d1" style="max-width:560px;margin-top:16px;">Two typefaces — both from the Barlow family — deliver a unified typographic voice that matches the character of the identity mark. Condensed for authority. Regular for clarity. Both for a firm that values precision above all.</p>
+    <p class="body-lg body-lgt rv d1" style="max-width:540px; margin-top:16px;">Two typefaces from the Barlow family deliver a unified typographic voice built for authority and clarity. Condensed for headlines. Regular for content. Both for a firm that values precision above everything.</p>
     <div class="type-grid">
       <div class="type-card rv d2">
-        <span class="type-tag">Display · Headlines · Callouts · Navigation</span>
+        <span class="type-tag">Display · Headlines · CTAs · Navigation</span>
         <div class="type-spec-display">Building<br>Safety<br>Certified.</div>
         <div class="type-meta">
           Barlow Condensed<br>
-          Weights: Light · Regular · Medium · SemiBold · Bold · ExtraBold<br>
-          Use for: Page titles, section headers, CTAs, navigation labels<br>
-          Character: Structural, direct, authoritative, zero decorative excess
+          Weights used: Bold · ExtraBold · Regular<br>
+          Use for: Page titles, section headers, CTAs, labels<br>
+          Character: Structural, direct, zero decorative excess
         </div>
       </div>
       <div class="type-card rv d3">
-        <span class="type-tag">Body · UI · Captions · Data · Forms</span>
-        <div class="type-spec-body">Your building received a recertification notice. ESi handles everything from the first site visit to the signed-and-sealed report submitted to Miami-Dade County — one firm, one point of contact, zero conflict of interest. We inspect. We don't repair. That's the difference.</div>
+        <span class="type-tag">Body · UI · Captions · Data · Reports</span>
+        <div class="type-spec-body">Your building received a recertification notice. ESi handles everything from the first site visit to the signed-and-sealed report submitted to Miami-Dade County. One firm, one contact, zero conflict of interest. We inspect. We don't repair.</div>
         <div class="type-meta">
           Barlow Regular / Light<br>
-          Weights: Light 300 · Regular 400 · Medium 500<br>
-          Use for: Body copy, descriptions, UI elements, email, forms<br>
-          Character: Clean, legible, modern — built for readability at any size
+          Weights used: Light 300 · Regular 400<br>
+          Use for: Body copy, descriptions, UI, reports, email<br>
+          Character: Legible and clean at any size
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3DA LOGO STRIP -->
-<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
-  <img src="esi_logo_v4_3da.png" class="strip-sq" style="mix-blend-mode:screen;" alt="ESi 3D Mark" />
-</div>
 
-
-<!-- ══════════════════════════════════════════
-  05 · SPECIFICATIONS
-══════════════════════════════════════════ -->
-<section class="sec sec-gray">
+<!-- ══ 9 · SPECIFICATIONS ══ -->
+<section class="sec sec-gy">
   <div class="wrap">
     <div class="eyebrow rv">
-      <span class="eye-num">05</span>
+      <span class="eye-num">09</span>
       <div class="eye-rule lgt"></div>
       <span class="eye-tag lgt">Identity Specifications</span>
     </div>
@@ -473,37 +437,27 @@
       <thead><tr><th>Attribute</th><th>Specification</th></tr></thead>
       <tbody>
         <tr><td>Brand Name</td><td>ESi — uppercase E, uppercase S, lowercase i. Proprietary capitalization. Never alter under any circumstance.</td></tr>
-        <tr><td>Never Write</td><td>ESI / Esi / esi / E.S.I. — only "ESi" is the correct form in all materials without exception.</td></tr>
-        <tr><td>Primary Logo</td><td>Group 01-C — Full Color Horizontal Lockup. Default for all primary formal applications.</td></tr>
-        <tr><td>Icon Only</td><td>Group 01-A — Use for app icons, social media profiles, favicons, embroidery, square-format contexts.</td></tr>
-        <tr><td>Dark Backgrounds</td><td>Group 03 (White versions) — use in all reversed and dark-field applications.</td></tr>
-        <tr><td>Single Color Print</td><td>Group 02 (Black silhouette) — letterpress, embossing, legal documents, newspaper, single-ink forms.</td></tr>
-        <tr><td>Presentation Use</td><td>Group 04 (3D Renders) — proposal covers, video intros, event materials. Not a production file.</td></tr>
-        <tr><td>Minimum Size</td><td>Horizontal lockup: 120px screen / 1 inch print. Icon only: 32px screen / 6mm print.</td></tr>
-        <tr><td>Clear Space</td><td>Maintain clear space equal to the cap-height of the "E" on all four sides in every application.</td></tr>
-        <tr><td>Primary Color</td><td>#980c10 Deep Crimson — dominant brand color in all primary applications and marketing materials.</td></tr>
-        <tr><td>Secondary Color</td><td>#00244c Midnight Navy — ESi lettermark, shield, body text, and all secondary system elements.</td></tr>
-        <tr><td>File Formats</td><td>Production master: SVG or EPS vector. Screen: PNG at 2× minimum. Print: PDF or EPS. Never JPG for production logo output.</td></tr>
-        <tr><td>Company</td><td>Engineering Services, Inc. (ESi) · Building Recertification Inspections · South Florida · Tri-County Area</td></tr>
-        <tr><td>Primary Market</td><td>Miami-Dade County (primary) · Broward County (secondary) · Palm Beach County (future expansion)</td></tr>
+        <tr><td>Never Write</td><td>ESI / Esi / esi / E.S.I. — only "ESi" is correct in all materials without exception.</td></tr>
+        <tr><td>Variations</td><td>V7a (Open Mark) · V7b (Circle Mark) · V7c (Compact Mark). Use consistently within each application context.</td></tr>
+        <tr><td>Primary Color</td><td>#a70e13 Deep Crimson — checkmark, accent elements, primary CTAs.</td></tr>
+        <tr><td>Secondary Color</td><td>#01416f Midnight Blue — lettermark, body text, building silhouette, secondary system elements. Clearly distinguishable from black on white surfaces.</td></tr>
+        <tr><td>Dark Backgrounds</td><td>White single-color versions (aw, bw, cw) — all reversed and dark-field applications.</td></tr>
+        <tr><td>Single-Color Print</td><td>Black silhouette versions (ab, bb, cb) — letterpress, embossing, legal documents, single-ink forms.</td></tr>
+        <tr><td>Minimum Size</td><td>Full lockup: 120px screen / 1 inch print. Icon only: 32px screen / 6mm print.</td></tr>
+        <tr><td>Clear Space</td><td>Maintain space equal to the cap-height of the "E" on all four sides in every application.</td></tr>
+        <tr><td>File Formats</td><td>Production master: SVG or EPS vector. Screen: PNG at 2x minimum. Print: PDF or EPS. Never JPG for production logo output.</td></tr>
+        <tr><td>Territory</td><td>South Florida · Tri-County · Miami-Dade primary · Broward secondary · Palm Beach future</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- 3DC LOGO STRIP -->
-<div style="background:#000000;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
-  <img src="esi_logo_v4_3dc.png" class="strip-w" style="mix-blend-mode:screen;" alt="ESi 3D Horizontal" />
-</div>
 
-
-<!-- ══════════════════════════════════════════
-  06 · USAGE GUIDELINES
-══════════════════════════════════════════ -->
+<!-- ══ 10 · USAGE GUIDELINES ══ -->
 <section class="sec sec-mid">
   <div class="wrap">
     <div class="eyebrow rv">
-      <span class="eye-num">06</span>
+      <span class="eye-num">10</span>
       <div class="eye-rule dkt"></div>
       <span class="eye-tag dkt">Usage Guidelines</span>
     </div>
@@ -515,13 +469,13 @@
           <div class="gl-title do">Always Do</div>
         </div>
         <ul class="glist">
-          <li class="gi do"><span class="gm do">✓</span>Use approved production files only — never redraw, recreate, or screenshot the mark</li>
-          <li class="gi do"><span class="gm do">✓</span>Preserve "ESi" exactly — uppercase E, uppercase S, lowercase i — in all materials</li>
-          <li class="gi do"><span class="gm do">✓</span>Maintain clear space equal to the "E" cap-height on all four sides at all times</li>
-          <li class="gi do"><span class="gm do">✓</span>Use Group 02 (black silhouette) for all single-color print applications</li>
-          <li class="gi do"><span class="gm do">✓</span>Scale proportionally using a corner handle — never stretch or compress independently</li>
-          <li class="gi do"><span class="gm do">✓</span>Use SVG or EPS vector files for all production and commercial print output</li>
-          <li class="gi do"><span class="gm do">✓</span>Use Group 03 (white versions) on all dark-field backgrounds</li>
+          <li class="gi do"><span class="gm do">✓</span>Use approved production files only — never redraw or recreate the mark</li>
+          <li class="gi do"><span class="gm do">✓</span>Preserve "ESi" exactly — uppercase E, uppercase S, lowercase i</li>
+          <li class="gi do"><span class="gm do">✓</span>Maintain clear space equal to the "E" cap-height on all four sides</li>
+          <li class="gi do"><span class="gm do">✓</span>Use white versions (aw, bw, cw) on all dark-field backgrounds</li>
+          <li class="gi do"><span class="gm do">✓</span>Use black versions (ab, bb, cb) for all single-color print applications</li>
+          <li class="gi do"><span class="gm do">✓</span>Scale proportionally from a corner handle — never stretch independently</li>
+          <li class="gi do"><span class="gm do">✓</span>Use SVG or EPS vector files for all production and print output</li>
         </ul>
       </div>
       <div class="gl-dont">
@@ -530,26 +484,21 @@
           <div class="gl-title dont">Never Do</div>
         </div>
         <ul class="glist">
-          <li class="gi dont"><span class="gm dont">✕</span>Never add drop shadows, outer glows, gradients, bevels, or emboss effects</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never add drop shadows, outer glows, gradients, or emboss effects</li>
           <li class="gi dont"><span class="gm dont">✕</span>Never place the mark on busy photographic or patterned backgrounds</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never alter any color within the logo — two approved colors only, no variants</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never rotate, skew, warp, or apply perspective transforms to the logo</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never write "ESI", "Esi", "esi", or "E.S.I." — only "ESi" is correct</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never use a 3D render as a production or official print file</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never add taglines or extra copy as part of the logo mark itself</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never alter any color within the logo — two approved colors only</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never rotate, skew, warp, or apply perspective transforms</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never write "ESI", "Esi", "esi", or "E.S.I." — only "ESi"</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never use a rasterized screenshot or JPG as a production file</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never add taglines or extra copy as part of the logo mark</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3DD LOGO STRIP -->
-<div style="background:#1a1a1a;padding:64px 48px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--red);" class="rv logo-strip">
-  <img src="esi_logo_v4_3dd.png" class="strip-w" style="mix-blend-mode:screen;" alt="ESi 3D Horizontal Alt" />
-</div>
 
-
-<!-- FOOTER -->
+<!-- ══ 11 · FOOTER ══ -->
 <footer>
   <span class="ft-label">Branding &amp; Identity Powered by</span>
   <img src="BIZSUAL_LOGO_white.png" alt="Bizsual" />

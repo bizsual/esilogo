@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESi — Logo &amp; Brand Identity System · V7</title>
+  <title>ESi — Logo &amp; Brand Identity System · V10</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
-      --red:   #a70e13;
-      --blue:  #01416f;
+      --red:   #e81820;
+      --blue:  #004068;
       --blk:   #000000;
       --dark:  #111111;
       --dkgry: #1c1c1c;
@@ -19,7 +19,7 @@
       --gry:   #f4f4f4;
       --wht:   #ffffff;
       --rl:    rgba(255,255,255,.07);
-      --rd:    rgba(0,64,112,.1);
+      --rd:    rgba(0,64,104,.1);
       --fd: 'Barlow Condensed', sans-serif;
       --fb: 'Barlow', sans-serif;
       --fm: 'DM Mono', monospace;
@@ -27,8 +27,7 @@
     html { scroll-behavior:smooth; }
     body { background:var(--wht); color:var(--blue); font-family:var(--fb); font-weight:300; -webkit-font-smoothing:antialiased; }
 
-    /* REVEAL */
-    .rv { opacity:0; transform:translateY(18px); transition:opacity .65s ease, transform .65s ease; }
+    .rv { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
     .rv.on { opacity:1; transform:translateY(0); }
     .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 
@@ -44,30 +43,28 @@
     .hero-eyebrow { font-family:var(--fm); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--red); margin-bottom:24px; }
     .hero-h1 { font-family:var(--fd); font-size:clamp(38px,4.5vw,58px); font-weight:800; text-transform:uppercase; line-height:.93; letter-spacing:-.01em; color:#fff; margin-bottom:24px; }
     .hero-h1 span { color:var(--red); }
-    .hero-desc { font-size:17px; line-height:1.8; color:rgba(255,255,255,.5); font-weight:300; max-width:680px; margin:0 auto 36px; }
+    .hero-desc { font-size:17px; line-height:1.8; color:rgba(255,255,255,.65); font-weight:400; max-width:680px; margin:0 auto 36px; }
     .hero-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
     .hero-tag { font-family:var(--fm); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.1); padding:5px 14px; border-radius:2px; }
 
     /* LAYOUT */
     .wrap { max-width:1100px; margin:0 auto; padding:0 48px; }
 
-    /* LOGO BLOCKS 1-3 */
-    .logo-block { padding:88px 0; }
-    .logo-block.lt  { background:var(--wht); }
-    .logo-block.gy  { background:var(--gry); }
-    .logo-block.dk  { background:var(--dark); }
+    /* LOGO BLOCKS */
+    .logo-block { padding:80px 0; background:var(--wht); border-bottom:1px solid var(--rd); }
     .logo-block-inner { display:flex; flex-direction:column; align-items:center; }
     .logo-block-img { display:flex; align-items:center; justify-content:center; width:100%; margin-bottom:40px; }
-    .logo-block-img img { max-width:42%; height:auto; display:block; }
-    .logo-block-img img.sc { mix-blend-mode:screen; }
-    .logo-block-text { max-width:620px; text-align:center; }
+    .logo-block-img img { max-width:90%; height:auto; display:block; }
+    .logo-block-text { max-width:680px; text-align:center; }
     .lb-num { font-family:var(--fm); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--red); margin-bottom:12px; display:block; }
-    .lb-title { font-family:var(--fd); font-size:26px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; }
-    .lb-title.lgt { color:var(--blue); }
-    .lb-title.dkt { color:#fff; }
-    .lb-desc { font-size:16px; line-height:1.78; font-weight:400; }
-    .lb-desc.lgt { color:rgba(1,65,111,.82); }
-    .lb-desc.dkt { color:rgba(255,255,255,.82); }
+    .lb-title { font-family:var(--fd); font-size:26px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+    .lb-desc { font-size:16px; line-height:1.78; font-weight:400; color:rgba(0,64,104,.82); }
+
+    /* TYPO BLOCK */
+    .typo-block { padding:80px 0; background:var(--wht); border-bottom:3px solid var(--red); }
+    .typo-block-inner { display:flex; flex-direction:column; align-items:center; }
+    .typo-img-wrap { width:100%; margin-top:36px; display:flex; align-items:center; justify-content:center; }
+    .typo-img-wrap img { max-width:90%; height:auto; display:block; }
 
     /* EYEBROW */
     .eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:40px; }
@@ -76,36 +73,20 @@
     .eye-rule.lgt { background:var(--rd); }
     .eye-rule.dkt { background:var(--rl); }
     .eye-tag  { font-family:var(--fm); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
-    .eye-tag.lgt { color:rgba(0,64,112,.3); }
+    .eye-tag.lgt { color:rgba(0,64,104,.3); }
     .eye-tag.dkt { color:rgba(255,255,255,.25); }
 
     h2 { font-family:var(--fd); font-weight:800; font-size:clamp(34px,4vw,54px); text-transform:uppercase; letter-spacing:.01em; line-height:.95; }
     h2.lgt { color:var(--blue); }
     h2.dkt { color:#fff; }
-    .body-lg { font-size:16px; line-height:1.8; font-weight:400; }
-    .body-lgt { color:rgba(1,65,111,.82); }
-    .body-dkt { color:rgba(255,255,255,.82); }
+    .body-lg  { font-size:16px; line-height:1.8; font-weight:400; }
+    .body-lgt { color:rgba(0,64,104,.82); }
+    .body-dkt { color:rgba(255,255,255,.78); }
     .red-line { width:48px; height:3px; background:var(--red); margin-bottom:20px; }
     .sec { padding:88px 0; }
     .sec-lt  { background:var(--wht); }
     .sec-gy  { background:var(--gry); }
-    .sec-dk  { background:var(--dark); }
     .sec-mid { background:#1a1a1a; }
-
-    /* GROUP BLOCKS 4 & 5 */
-    .group-block { padding:72px 0; }
-    .group-header { text-align:center; margin-bottom:48px; }
-    .group-desc { font-size:16px; line-height:1.78; font-weight:400; max-width:600px; margin:12px auto 0; }
-    .logos-row { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-    .lr-cell { display:flex; align-items:center; justify-content:center; padding:48px 24px; }
-    .lr-cell img { max-width:72%; height:auto; display:block; }
-    .lr-cell img.sc { mix-blend-mode:screen; }
-    .lr-cell img.mv { mix-blend-mode:multiply; }
-
-    /* TYPO BLOCK */
-    .typo-block { padding:88px 0; background:var(--wht); }
-    .typo-img-wrap { display:flex; align-items:center; justify-content:center; margin-top:40px; }
-    .typo-img-wrap img { max-width:60%; height:auto; display:block; }
 
     /* COLOR SYSTEM */
     .color-bar { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-bottom:3px; }
@@ -118,7 +99,7 @@
     .color-notes { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:3px; }
     .cnote { background:rgba(255,255,255,.04); border:1px solid var(--rl); padding:24px 28px; }
     .cnote-title { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; margin-bottom:10px; }
-    .cnote p { font-size:15px; line-height:1.78; color:rgba(255,255,255,.45); }
+    .cnote p { font-size:15px; line-height:1.78; color:rgba(255,255,255,.55); }
     .cnote p + p { margin-top:8px; }
     strong.r { color:var(--red); }
     strong.w { color:#fff; }
@@ -127,15 +108,15 @@
     /* TYPOGRAPHY */
     .type-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:40px; }
     .type-card { padding:36px 40px; border:1px solid var(--rd); }
-    .type-tag { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,112,.35); margin-bottom:20px; display:block; }
+    .type-tag { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,104,.35); margin-bottom:20px; display:block; }
     .type-spec-display { font-family:var(--fd); font-size:52px; font-weight:800; line-height:.9; letter-spacing:-.01em; color:var(--blue); text-transform:uppercase; margin-bottom:16px; }
-    .type-spec-body { font-family:var(--fb); font-size:16px; font-weight:300; line-height:1.78; color:rgba(0,64,112,.6); margin-bottom:16px; }
-    .type-meta { font-family:var(--fm); font-size:10px; color:rgba(0,64,112,.35); line-height:1.9; }
+    .type-spec-body { font-family:var(--fb); font-size:16px; font-weight:300; line-height:1.78; color:rgba(0,64,104,.6); margin-bottom:16px; }
+    .type-meta { font-family:var(--fm); font-size:10px; color:rgba(0,64,104,.35); line-height:1.9; }
 
     /* SPECS TABLE */
     .specs { width:100%; border-collapse:collapse; margin-top:40px; }
-    .specs th { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,112,.35); font-weight:300; text-align:left; padding:10px 16px; border-bottom:2px solid var(--rd); }
-    .specs td { font-size:15px; color:rgba(0,64,112,.65); padding:13px 16px; border-bottom:1px solid var(--rd); line-height:1.6; font-weight:300; }
+    .specs th { font-family:var(--fm); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,64,104,.35); font-weight:300; text-align:left; padding:10px 16px; border-bottom:2px solid var(--rd); }
+    .specs td { font-size:15px; color:rgba(0,64,104,.75); padding:13px 16px; border-bottom:1px solid var(--rd); line-height:1.6; font-weight:300; }
     .specs tr:nth-child(odd) td { background:var(--gry); }
     .specs td:first-child { font-family:var(--fd); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); white-space:nowrap; }
 
@@ -145,16 +126,16 @@
     .gl-dont { background:var(--blue); padding:32px 36px; }
     .gl-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
     .gl-ico  { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-size:13px; font-weight:700; }
-    .ico-do   { background:rgba(0,64,112,.12); color:var(--blue); }
-    .ico-dont { background:rgba(168,8,16,.2); color:var(--red); }
+    .ico-do   { background:rgba(0,64,104,.12); color:var(--blue); }
+    .ico-dont { background:rgba(232,24,32,.2); color:var(--red); }
     .gl-title { font-family:var(--fd); font-size:20px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
     .gl-title.do   { color:var(--blue); }
     .gl-title.dont { color:#fff; }
     .glist { list-style:none; }
     .gi { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid; font-size:15px; line-height:1.55; }
     .gi:first-child { border-top:1px solid; }
-    .gi.do   { border-color:var(--rd); color:rgba(0,64,112,.6); }
-    .gi.dont { border-color:rgba(255,255,255,.08); color:rgba(255,255,255,.5); }
+    .gi.do   { border-color:var(--rd); color:rgba(0,64,104,.72); }
+    .gi.dont { border-color:rgba(255,255,255,.08); color:rgba(255,255,255,.65); }
     .gm { font-family:var(--fm); font-size:10px; min-width:14px; margin-top:3px; }
     .gm.do   { color:var(--blue); }
     .gm.dont { color:var(--red); }
@@ -169,11 +150,9 @@
       .topbar { padding:0 20px; }
       .wrap { padding:0 20px; }
       #hero { padding:100px 20px 72px; }
-      .logo-block { padding:64px 0; }
-      .logo-block-img img { max-width:80%; }
-      .logos-row { grid-template-columns:1fr; }
-      .lr-cell img { max-width:70%; }
-      .typo-img-wrap img { max-width:92%; }
+      .logo-block { padding:56px 0; }
+      .logo-block-img img { max-width:98%; }
+      .typo-img-wrap img { max-width:98%; }
       .color-bar { grid-template-columns:1fr 1fr; }
       .color-notes { grid-template-columns:1fr; }
       .type-grid { grid-template-columns:1fr; }
@@ -187,138 +166,94 @@
 <!-- TOPBAR -->
 <nav class="topbar">
   <div class="tb-l"><em>ESi</em> &nbsp;·&nbsp; Engineering Services, Inc.</div>
-  <div class="tb-r">Brand Identity System · V7</div>
+  <div class="tb-r">Brand Identity System · V10</div>
   <div class="tb-tag">Confidential</div>
 </nav>
 
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <div class="hero-eyebrow rv">Engineering Services, Inc. · South Florida · Version 7</div>
+  <div class="hero-eyebrow rv">Engineering Services, Inc. · South Florida · Version 10</div>
   <h1 class="hero-h1 rv d1">Logo &amp; Brand<br><span>Identity System.</span></h1>
-  <p class="hero-desc rv d2">Three new mark variations built on Oscar's latest direction — simplified, printable, and built to last. A cleaner building, a bolder checkmark, a more readable blue. Every decision has a reason.</p>
+  <p class="hero-desc rv d2">One mark. Built exactly to spec. A bold building silhouette, a flat checkmark, and the ESi lettermark — presented in three color treatments and a complete typographic system.</p>
   <div class="hero-tags rv d3">
-    <span class="hero-tag">Deep Crimson · #a70e13</span>
-    <span class="hero-tag">Midnight Blue · #01416f</span>
-    <span class="hero-tag">3 Mark Variations</span>
+    <span class="hero-tag">Pure Red · #e81820</span>
+    <span class="hero-tag">Midnight Blue · #004068</span>
+    <span class="hero-tag">Black &amp; Red Variation</span>
     <span class="hero-tag">Miami-Dade · Broward · South Florida</span>
   </div>
 </section>
 
 
-<!-- ══ BLOCK 1 · V7a ══ -->
-<div class="logo-block lt rv">
+<!-- ══ BLOCK A · V10a — BLACK + RED ══ -->
+<div class="logo-block rv">
   <div class="wrap">
     <div class="logo-block-inner">
       <div class="logo-block-img">
-        <img src="PROTOTYPE_ESI_LOGO_V7a.png" alt="ESi Logo V7a" />
+        <img src="PROTOTYPE_ESI_LOGO_V10a.png" alt="ESi Logo V10a — Black and Red" />
       </div>
       <div class="logo-block-text">
-        <span class="lb-num">Variation 01 · V7a</span>
-        <div class="lb-title lgt">The Open Mark</div>
-        <p class="lb-desc lgt">The building silhouette and red checkmark work together without any enclosing frame. The checkmark sweeps diagonally through the composition, giving the mark energy and direction. The open structure means the eye reads both elements simultaneously and the whole thing prints cleanly at any size — from a business card to a truck wrap.</p>
+        <span class="lb-num">Variation A · Black &amp; Red</span>
+        <div class="lb-title">The Original Spirit</div>
+        <p class="lb-desc">This one is for continuity. The new mark in black and red reconnects directly with the palette Oscar has been using in his existing materials — keeping the identity familiar to anyone who already knows ESi, while replacing the old logo with something much stronger and more scalable. The near-black building, the pure red checkmark, three sub-variations of the same color treatment.</p>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ BLOCK 2 · V7b ══ -->
-<div class="logo-block rv" style="background:#d9d9d9;">
+<!-- ══ BLOCK B · V10b — BLUE + RED ══ -->
+<div class="logo-block rv">
   <div class="wrap">
     <div class="logo-block-inner">
       <div class="logo-block-img">
-        <img src="PROTOTYPE_ESI_LOGO_V7b.png" alt="ESi Logo V7b" />
+        <img src="PROTOTYPE_ESI_LOGO_V10b.png" alt="ESi Logo V10b — Blue and Red" />
       </div>
       <div class="logo-block-text">
-        <span class="lb-num">Variation 02 · V7b</span>
-        <div class="lb-title lgt">The Circle Mark</div>
-        <p class="lb-desc lgt">The circular enclosure gives the mark a badge or seal quality that reads immediately as authority and certification. The building and checkmark sit within the arc, reinforcing the idea of a completed, approved inspection. This variant works particularly well as a standalone emblem — embroidery, stamps, official report headers, profile images.</p>
+        <span class="lb-num">Variation B · Blue &amp; Red</span>
+        <div class="lb-title">The Brand Color Version</div>
+        <p class="lb-desc">The primary brand-compliant version. The building silhouette in midnight blue grounds the mark with authority and depth, while the pure red checkmark cuts through as the accent that communicates certification and approval. Three sub-variations showing different distributions of red and blue across the building and the ESi lettermark — each valid, each usable depending on the application context.</p>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ BLOCK 3 · V7c ══ -->
-<div class="logo-block gy rv">
+<!-- ══ BLOCK C · V10c — SINGLE COLOR ══ -->
+<div class="logo-block rv">
   <div class="wrap">
     <div class="logo-block-inner">
       <div class="logo-block-img">
-        <img src="PROTOTYPE_ESI_LOGO_V7c.png" alt="ESi Logo V7c" />
+        <img src="PROTOTYPE_ESI_LOGO_V10c.png" alt="ESi Logo V10c — Single Color Variants" />
       </div>
       <div class="logo-block-text">
-        <span class="lb-num">Variation 03 · V7c</span>
-        <div class="lb-title lgt">The Compact Mark</div>
-        <p class="lb-desc lgt">A tighter, more structured interpretation where the building and checkmark are contained and grounded. The proportions are more vertical, making it the cleanest performer at very small sizes. This is the variant that will still read on a pen, a favicon, or a 16px app icon without losing its meaning.</p>
+        <span class="lb-num">Variation C · Single Color</span>
+        <div class="lb-title">Monochromatic Versions</div>
+        <p class="lb-desc">Three single-color versions of the complete mark — full red, full blue, and full near-black. The red and blue variants are for single-ink print, embossing, and branded contexts where one dominant color is preferred. The near-black version is the silhouette master — designed for use on light surfaces, official documents, letterpress, and any application where only one dark ink is available.</p>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ BLOCK 4 · WHITE VERSIONS ══ -->
-<div class="group-block" style="background:var(--dkgry);">
-  <div class="wrap">
-    <div class="group-header rv">
-      <span class="lb-num">White Versions · Dark Field Applications</span>
-      <h2 class="dkt">Single Color<br>White.</h2>
-      <p class="group-desc body-dkt">For dark backgrounds, embroidery on dark fabrics, reversed digital applications, and any context where the full-color version cannot be used on a dark surface.</p>
-    </div>
-    <div class="logos-row rv d1">
-      <div class="lr-cell" style="background:#111;">
-        <img src="PROTOTYPE_ESI_LOGO_V7aw.png" alt="V7a White" class="sc" />
-      </div>
-      <div class="lr-cell" style="background:#111;">
-        <img src="PROTOTYPE_ESI_LOGO_V7bw.png" alt="V7b White" class="sc" />
-      </div>
-      <div class="lr-cell" style="background:#111;">
-        <img src="PROTOTYPE_ESI_LOGO_V7cw.png" alt="V7c White" class="sc" />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ BLOCK 5 · BLACK VERSIONS ══ -->
-<div class="group-block" style="background:var(--cream);">
-  <div class="wrap">
-    <div class="group-header rv">
-      <span class="lb-num" style="color:var(--red);">Black Versions · Single-Color Print</span>
-      <h2 class="lgt">Single Color<br>Black.</h2>
-      <p class="group-desc body-lgt">For letterpress, embossing, single-ink print, official inspection reports, legal documents, government permit applications, and any single-color application.</p>
-    </div>
-    <div class="logos-row rv d1">
-      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
-        <img src="PROTOTYPE_ESI_LOGO_V7ab.png" alt="V7a Black" class="mv" />
-      </div>
-      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
-        <img src="PROTOTYPE_ESI_LOGO_V7bb.png" alt="V7b Black" class="mv" />
-      </div>
-      <div class="lr-cell" style="background:#fff; border:1px solid rgba(0,64,112,.06);">
-        <img src="PROTOTYPE_ESI_LOGO_V7cb.png" alt="V7c Black" class="mv" />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ BLOCK 6 · TYPOGRAPHIC SYSTEM ══ -->
+<!-- ══ BLOCK TYPO · V10typo ══ -->
 <div class="typo-block rv">
   <div class="wrap">
-    <div class="group-header">
-      <span class="lb-num">Typographic System</span>
-      <h2 class="lgt">The Logotype.</h2>
-      <p class="group-desc body-lgt">Four color combinations using only the two brand colors — deep crimson and midnight blue. Each block presents all three logo variations (V7a, V7b, and V7c) in the same color treatment, showing how red and blue can be distributed differently across the mark and the wordmark while the identity stays consistent and immediately recognizable.</p>
-    </div>
-    <div class="typo-img-wrap rv d1">
-      <img src="PROTOTYPE_ESI_LOGO_V7typo.png" alt="ESi Typographic System" />
+    <div class="typo-block-inner">
+      <div style="text-align:center;">
+        <span class="lb-num">Typographic System</span>
+        <div class="lb-title" style="color:var(--blue);">The Logotype.</div>
+        <p class="lb-desc" style="max-width:680px; margin:0 auto; color:rgba(0,64,104,.82);">Six color combinations of the horizontal lockup — the ESi mark paired with Engineering Services, inc. across different distributions of red, blue, and near-black. The mark and wordmark structure is identical in every panel. The only variable is the color treatment, covering every formal print and digital context the brand will encounter.</p>
+      </div>
+      <div class="typo-img-wrap rv d1">
+        <img src="PROTOTYPE_ESI_LOGO_V10typo.png" alt="ESi Typographic System — Color Combinations" />
+      </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 7 · COLOR SYSTEM ══ -->
+<!-- ══ 07 · COLOR SYSTEM ══ -->
 <section class="sec sec-mid">
   <div class="wrap">
     <div class="eyebrow rv">
@@ -330,30 +265,30 @@
 
     <div class="color-bar rv d1">
       <div>
-        <div class="cswatch" style="background:#a70e13;"></div>
+        <div class="cswatch" style="background:#e81820;"></div>
         <div class="cinfo">
           <span class="crole">Primary</span>
-          <div class="cname">Deep Crimson</div>
-          <span class="chex">#a70e13</span>
-          <span class="crgb">RGB 167 · 14 · 19</span>
+          <div class="cname">Pure Red</div>
+          <span class="chex">#e81820</span>
+          <span class="crgb">RGB 232 · 24 · 32</span>
         </div>
       </div>
       <div>
-        <div class="cswatch" style="background:#01416f;"></div>
+        <div class="cswatch" style="background:#004068;"></div>
         <div class="cinfo">
           <span class="crole">Secondary</span>
           <div class="cname">Midnight Blue</div>
-          <span class="chex">#01416f</span>
-          <span class="crgb">RGB 1 · 65 · 111</span>
+          <span class="chex">#004068</span>
+          <span class="crgb">RGB 0 · 64 · 104</span>
         </div>
       </div>
       <div>
-        <div class="cswatch" style="background:#111111; border:1px solid rgba(255,255,255,.05);"></div>
+        <div class="cswatch" style="background:#201820; border:1px solid rgba(255,255,255,.05);"></div>
         <div class="cinfo">
-          <span class="crole">Dark Field</span>
+          <span class="crole">Dark / Black</span>
           <div class="cname">Near Black</div>
-          <span class="chex">#111111</span>
-          <span class="crgb">RGB 17 · 17 · 17</span>
+          <span class="chex">#201820</span>
+          <span class="crgb">RGB 32 · 24 · 32</span>
         </div>
       </div>
       <div>
@@ -370,25 +305,26 @@
     <div class="color-notes rv d2">
       <div class="cnote">
         <div class="cnote-title">Color Roles</div>
-        <p><strong class="r">Deep Crimson</strong> is the dominant brand color. It appears in the checkmark, primary CTAs, and all accent elements. It signals urgency, accountability, and action.</p>
-        <p><strong class="b">#01416f Midnight Blue</strong> is the updated secondary color. Unlike the previous darker navy, this value maintains clear distinction from black when used as body text on white surfaces — solving the legibility issue in reports and documents.</p>
-        <p>No variants, no tints, no additional colors without explicit approval.</p>
+        <p><strong class="r">Pure Red #e81820</strong> is the new dominant brand color — a vivid, high-energy red that reads clearly at any size and in any context. It replaced the previous deeper crimson to improve legibility and stand further from black when used in text and print.</p>
+        <p><strong class="b">Midnight Blue #004068</strong> is the secondary color. Distinguishable from black on white surfaces, it carries authority and depth across the building silhouette, the ESi lettermark, and all secondary system elements.</p>
+        <p><strong class="w">Near Black #201820</strong> is used in the black-and-red variation and as the single-color dark master for official documents and single-ink applications.</p>
       </div>
       <div class="cnote">
         <div class="cnote-title">Approved Combinations</div>
-        <p><strong class="r">●</strong> Crimson on White — primary brand pairing, headings, CTAs</p>
-        <p><strong class="b">●</strong> Navy on White — body text, UI, links, secondary type</p>
-        <p><strong class="w">●</strong> White on Crimson — reverse CTAs and highlight banners</p>
-        <p><strong class="w">●</strong> White on Navy — dark-mode headers and reversed applications</p>
-        <p><strong class="r">●</strong> Crimson on Navy — accent text on dark branded backgrounds</p>
-        <p><strong class="w">●</strong> Navy on Cream — document body text, report typography</p>
+        <p><strong class="r">●</strong> Red on White — primary heading and accent pairing</p>
+        <p><strong class="b">●</strong> Blue on White — body text, UI, links, secondary type</p>
+        <p><strong class="w">●</strong> Near-Black on White — official documents and reports</p>
+        <p><strong class="w">●</strong> White on Red — reverse CTAs and highlight banners</p>
+        <p><strong class="w">●</strong> White on Blue — dark-mode headers and reversed fields</p>
+        <p><strong class="r">●</strong> Red on Blue — accent text on dark branded backgrounds</p>
+        <p><strong class="b">●</strong> Blue on Cream — document body text and report typography</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══ 8 · TYPOGRAPHY ══ -->
+<!-- ══ 08 · TYPOGRAPHY ══ -->
 <section class="sec sec-lt">
   <div class="wrap">
     <div class="eyebrow rv">
@@ -397,14 +333,14 @@
       <span class="eye-tag lgt">Typography System</span>
     </div>
     <h2 class="lgt rv" style="margin-bottom:16px;">Sharp. Structural.<br>Unmistakably<br>Professional.</h2>
-    <p class="body-lg body-lgt rv d1" style="max-width:540px; margin-top:16px;">Two typefaces from the Barlow family deliver a unified typographic voice built for authority and clarity. Condensed for headlines. Regular for content. Both for a firm that values precision above everything.</p>
+    <p class="body-lg body-lgt rv d1" style="max-width:540px; margin-top:16px;">Two typefaces from the Barlow family — condensed for authority, regular for clarity. Built for a firm where every word carries professional weight.</p>
     <div class="type-grid">
       <div class="type-card rv d2">
         <span class="type-tag">Display · Headlines · CTAs · Navigation</span>
         <div class="type-spec-display">Building<br>Safety<br>Certified.</div>
         <div class="type-meta">
           Barlow Condensed<br>
-          Weights used: Bold · ExtraBold · Regular<br>
+          Weights: Bold · ExtraBold · Regular<br>
           Use for: Page titles, section headers, CTAs, labels<br>
           Character: Structural, direct, zero decorative excess
         </div>
@@ -414,9 +350,9 @@
         <div class="type-spec-body">Your building received a recertification notice. ESi handles everything from the first site visit to the signed-and-sealed report submitted to Miami-Dade County. One firm, one contact, zero conflict of interest. We inspect. We don't repair.</div>
         <div class="type-meta">
           Barlow Regular / Light<br>
-          Weights used: Light 300 · Regular 400<br>
+          Weights: Light 300 · Regular 400<br>
           Use for: Body copy, descriptions, UI, reports, email<br>
-          Character: Legible and clean at any size
+          Character: Clean and legible at any size
         </div>
       </div>
     </div>
@@ -424,7 +360,7 @@
 </section>
 
 
-<!-- ══ 9 · SPECIFICATIONS ══ -->
+<!-- ══ 09 · SPECIFICATIONS ══ -->
 <section class="sec sec-gy">
   <div class="wrap">
     <div class="eyebrow rv">
@@ -438,11 +374,12 @@
       <tbody>
         <tr><td>Brand Name</td><td>ESi — uppercase E, uppercase S, lowercase i. Proprietary capitalization. Never alter under any circumstance.</td></tr>
         <tr><td>Never Write</td><td>ESI / Esi / esi / E.S.I. — only "ESi" is correct in all materials without exception.</td></tr>
-        <tr><td>Variations</td><td>V7a (Open Mark) · V7b (Circle Mark) · V7c (Compact Mark). Use consistently within each application context.</td></tr>
-        <tr><td>Primary Color</td><td>#a70e13 Deep Crimson — checkmark, accent elements, primary CTAs.</td></tr>
-        <tr><td>Secondary Color</td><td>#01416f Midnight Blue — lettermark, body text, building silhouette, secondary system elements. Clearly distinguishable from black on white surfaces.</td></tr>
-        <tr><td>Dark Backgrounds</td><td>White single-color versions (aw, bw, cw) — all reversed and dark-field applications.</td></tr>
-        <tr><td>Single-Color Print</td><td>Black silhouette versions (ab, bb, cb) — letterpress, embossing, legal documents, single-ink forms.</td></tr>
+        <tr><td>Variation A</td><td>Black and red — the original spirit version. For continuity with existing ESi materials and audiences already familiar with the brand.</td></tr>
+        <tr><td>Variation B</td><td>Blue and red — the primary brand color version. Default for all new formal applications going forward.</td></tr>
+        <tr><td>Variation C</td><td>Single color — red, blue, and near-black monochromatic versions. For single-ink print, embossing, and dark-surface applications.</td></tr>
+        <tr><td>Primary Color</td><td>#e81820 Pure Red — the checkmark, primary accent elements, and dominant brand signal.</td></tr>
+        <tr><td>Secondary Color</td><td>#004068 Midnight Blue — building silhouette, ESi lettermark, body text, secondary system elements.</td></tr>
+        <tr><td>Dark / Black</td><td>#201820 Near Black — used in Variation A and the dark monochromatic version. Replaces pure black for added warmth.</td></tr>
         <tr><td>Minimum Size</td><td>Full lockup: 120px screen / 1 inch print. Icon only: 32px screen / 6mm print.</td></tr>
         <tr><td>Clear Space</td><td>Maintain space equal to the cap-height of the "E" on all four sides in every application.</td></tr>
         <tr><td>File Formats</td><td>Production master: SVG or EPS vector. Screen: PNG at 2x minimum. Print: PDF or EPS. Never JPG for production logo output.</td></tr>
@@ -472,8 +409,8 @@
           <li class="gi do"><span class="gm do">✓</span>Use approved production files only — never redraw or recreate the mark</li>
           <li class="gi do"><span class="gm do">✓</span>Preserve "ESi" exactly — uppercase E, uppercase S, lowercase i</li>
           <li class="gi do"><span class="gm do">✓</span>Maintain clear space equal to the "E" cap-height on all four sides</li>
-          <li class="gi do"><span class="gm do">✓</span>Use white versions (aw, bw, cw) on all dark-field backgrounds</li>
-          <li class="gi do"><span class="gm do">✓</span>Use black versions (ab, bb, cb) for all single-color print applications</li>
+          <li class="gi do"><span class="gm do">✓</span>Use Variation C near-black on light surfaces for single-ink applications</li>
+          <li class="gi do"><span class="gm do">✓</span>Use Variation B as the default for all new brand applications</li>
           <li class="gi do"><span class="gm do">✓</span>Scale proportionally from a corner handle — never stretch independently</li>
           <li class="gi do"><span class="gm do">✓</span>Use SVG or EPS vector files for all production and print output</li>
         </ul>
@@ -486,11 +423,11 @@
         <ul class="glist">
           <li class="gi dont"><span class="gm dont">✕</span>Never add drop shadows, outer glows, gradients, or emboss effects</li>
           <li class="gi dont"><span class="gm dont">✕</span>Never place the mark on busy photographic or patterned backgrounds</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never alter any color within the logo — two approved colors only</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never alter any color within the logo outside the approved system</li>
           <li class="gi dont"><span class="gm dont">✕</span>Never rotate, skew, warp, or apply perspective transforms</li>
           <li class="gi dont"><span class="gm dont">✕</span>Never write "ESI", "Esi", "esi", or "E.S.I." — only "ESi"</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never use a rasterized screenshot or JPG as a production file</li>
-          <li class="gi dont"><span class="gm dont">✕</span>Never add taglines or extra copy as part of the logo mark</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never use a JPG screenshot as a production or print file</li>
+          <li class="gi dont"><span class="gm dont">✕</span>Never mix color treatments from different variations in one application</li>
         </ul>
       </div>
     </div>
@@ -498,7 +435,7 @@
 </section>
 
 
-<!-- ══ 11 · FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <span class="ft-label">Branding &amp; Identity Powered by</span>
   <img src="BIZSUAL_LOGO_white.png" alt="Bizsual" />
